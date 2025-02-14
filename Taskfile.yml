@@ -1,0 +1,15 @@
+version: "3"
+
+tasks:
+  dev:
+    deps: [clean]
+    cmds:
+      - cmd: |
+          npx @tailwindcss/cli -i ./styles/main.css -o ./public/main.css --watch &
+          go run main.go
+
+  clean:
+    cmds:
+      - cmd: |
+          echo "Cleaning up..."
+          lsof -ti:8080 | xargs kill -9 || true
