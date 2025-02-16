@@ -649,9 +649,6 @@
   .bg-\[\#A9A9A9\] {
     background-color: #A9A9A9;
   }
-  .bg-gray-30 {
-    background-color: var(--color-gray-30);
-  }
   .bg-subtle-1 {
     background-color: var(--color-subtle-1);
   }
@@ -714,13 +711,6 @@
   }
   .underline {
     text-decoration-line: underline;
-  }
-  .hover\:bg-subtle-2 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-subtle-2);
-      }
-    }
   }
   .hover\:bg-subtle-3 {
     &:hover {
