@@ -4,10 +4,12 @@ import (
 	"html/template"
 	"io/fs"
 	"log"
+	"math/rand"
 	"net/http"
 	"os"
 	"path/filepath"
 	"strings"
+	"time"
 )
 
 func main() {
@@ -42,7 +44,8 @@ func pageHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Create a new master template.
 	tmpl := template.New("master").Funcs(template.FuncMap{
-		"seq": seq,
+		"seq":         seq,
+		"randomColor": randomColor,
 	})
 
 	// Load all shared templates recursively.
@@ -114,4 +117,11 @@ func seq(n int) []int {
 		result[i] = i
 	}
 	return result
+}
+
+func randomColor() string {
+	colors := []string{"#FF6D70", "#57C3B9", "#FFA931", "#8B7FE8"}
+	rand.Seed(time.Now().UnixNano())
+	index := rand.Intn(len(colors))
+	return colors[index]
 }
