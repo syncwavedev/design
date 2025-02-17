@@ -1,34 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gray-10: rgb(252, 252, 252);
-  --color-gray-30: rgb(247, 247, 247);
-  --color-gray-50: rgb(242, 242, 242);
-  --color-gray-70: rgb(237, 237, 237);
-  --color-gray-100: rgb(232, 232, 232);
-  --color-gray-150: rgb(220, 220, 220);
-  --color-gray-200: rgb(208, 208, 208);
-  --color-gray-250: rgb(196, 196, 196);
-  --color-gray-300: rgb(184, 184, 184);
-  --color-gray-350: rgb(172, 172, 172);
-  --color-gray-400: rgb(160, 160, 160);
-  --color-gray-450: rgb(148, 148, 148);
-  --color-gray-500: rgb(136, 136, 136);
-  --color-gray-550: rgb(124, 124, 124);
-  --color-gray-600: rgb(112, 112, 112);
-  --color-gray-650: rgb(100, 100, 100);
-  --color-gray-700: rgb(88, 88, 88);
-  --color-gray-750: rgb(76, 76, 76);
-  --color-gray-800: rgb(64, 64, 64);
-  --color-gray-850: rgb(52, 52, 52);
-  --color-gray-870: rgb(40, 40, 40);
-  --color-gray-900: rgb(28, 28, 28);
+  --color-gray-10: rgb(252, 253, 251);
+  --color-gray-30: rgb(247, 248, 246);
+  --color-gray-50: rgb(242, 243, 241);
+  --color-gray-70: rgb(237, 238, 236);
+  --color-gray-100: rgb(232, 233, 231);
+  --color-gray-150: rgb(220, 221, 219);
+  --color-gray-200: rgb(208, 209, 207);
+  --color-gray-250: rgb(196, 197, 195);
+  --color-gray-300: rgb(184, 185, 183);
+  --color-gray-350: rgb(172, 173, 171);
+  --color-gray-400: rgb(160, 161, 159);
+  --color-gray-450: rgb(148, 149, 147);
+  --color-gray-500: rgb(136, 137, 135);
+  --color-gray-550: rgb(124, 125, 123);
+  --color-gray-600: rgb(112, 113, 111);
+  --color-gray-650: rgb(100, 101, 99);
+  --color-gray-700: rgb(88, 89, 87);
+  --color-gray-750: rgb(76, 77, 75);
+  --color-gray-800: rgb(64, 65, 63);
+  --color-gray-850: rgb(52, 53, 51);
+  --color-gray-870: rgb(40, 41, 39);
+  --color-gray-900: rgb(28, 29, 27);
 
   --color-ink: var(--color-gray-900);
-  --color-ink-detail: var(--color-gray-450);
+  --color-ink-detail: var(--color-gray-500);
   --color-ink-body: var(--color-gray-650);
 
-  --color-border: var(--color-gray-150);
+  --color-border: var(--color-gray-200);
 
   --color-bg: var(--color-white);
   --color-subtle-1: var(--color-gray-10);
@@ -79,25 +79,9 @@
 }
 
 @layer components {
-  .gray-task {
-    --task-bg: var(--color-subtle-2);
-  }
-
-  .yellow-task {
-    --task-bg: var(--color-subtle-2);
-  }
-
-  .blue-task {
-    --task-bg: #edf3f3;
-  }
-
-  .green-task {
-    --task-bg: #edf3ee;
-  }
-
   /* Buttons */
   .btn--icon {
-    @apply text-gray-450 p-0.5;
+    @apply text-gray-500 p-0.5;
 
     border-radius: 50%;
     aspect-ratio: 1;

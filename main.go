@@ -120,7 +120,7 @@ func seq(n int) []int {
 }
 
 func randomColor() string {
-	colors := []string{"#FF6D70", "#57C3B9", "#FFA931", "#8B7FE8"}
+	colors := []string{"#4A89C8", "#2ECC71"}
 	rand.Seed(time.Now().UnixNano())
 	index := rand.Intn(len(colors))
 	return colors[index]

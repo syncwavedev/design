@@ -205,16 +205,16 @@
     --color-slate-800: oklch(0.279 0.041 260.031);
     --color-slate-900: oklch(0.208 0.042 265.755);
     --color-slate-950: oklch(0.129 0.042 264.695);
-    --color-gray-50: rgb(242, 242, 242);
-    --color-gray-100: rgb(232, 232, 232);
-    --color-gray-200: rgb(208, 208, 208);
-    --color-gray-300: rgb(184, 184, 184);
-    --color-gray-400: rgb(160, 160, 160);
-    --color-gray-500: rgb(136, 136, 136);
-    --color-gray-600: rgb(112, 112, 112);
-    --color-gray-700: rgb(88, 88, 88);
-    --color-gray-800: rgb(64, 64, 64);
-    --color-gray-900: rgb(28, 28, 28);
+    --color-gray-50: rgb(242, 243, 241);
+    --color-gray-100: rgb(232, 233, 231);
+    --color-gray-200: rgb(208, 209, 207);
+    --color-gray-300: rgb(184, 185, 183);
+    --color-gray-400: rgb(160, 161, 159);
+    --color-gray-500: rgb(136, 137, 135);
+    --color-gray-600: rgb(112, 113, 111);
+    --color-gray-700: rgb(88, 89, 87);
+    --color-gray-800: rgb(64, 65, 63);
+    --color-gray-900: rgb(28, 29, 27);
     --color-gray-950: oklch(0.13 0.028 261.692);
     --color-zinc-50: oklch(0.985 0 0);
     --color-zinc-100: oklch(0.967 0.001 286.375);
@@ -374,22 +374,22 @@
     --default-mono-font-variation-settings: var(
       --font-mono--font-variation-settings
     );
-    --color-gray-10: rgb(252, 252, 252);
-    --color-gray-30: rgb(247, 247, 247);
-    --color-gray-70: rgb(237, 237, 237);
-    --color-gray-150: rgb(220, 220, 220);
-    --color-gray-250: rgb(196, 196, 196);
-    --color-gray-350: rgb(172, 172, 172);
-    --color-gray-450: rgb(148, 148, 148);
-    --color-gray-550: rgb(124, 124, 124);
-    --color-gray-650: rgb(100, 100, 100);
-    --color-gray-750: rgb(76, 76, 76);
-    --color-gray-850: rgb(52, 52, 52);
-    --color-gray-870: rgb(40, 40, 40);
+    --color-gray-10: rgb(252, 253, 251);
+    --color-gray-30: rgb(247, 248, 246);
+    --color-gray-70: rgb(237, 238, 236);
+    --color-gray-150: rgb(220, 221, 219);
+    --color-gray-250: rgb(196, 197, 195);
+    --color-gray-350: rgb(172, 173, 171);
+    --color-gray-450: rgb(148, 149, 147);
+    --color-gray-550: rgb(124, 125, 123);
+    --color-gray-650: rgb(100, 101, 99);
+    --color-gray-750: rgb(76, 77, 75);
+    --color-gray-850: rgb(52, 53, 51);
+    --color-gray-870: rgb(40, 41, 39);
     --color-ink: var(--color-gray-900);
-    --color-ink-detail: var(--color-gray-450);
+    --color-ink-detail: var(--color-gray-500);
     --color-ink-body: var(--color-gray-650);
-    --color-border: var(--color-gray-150);
+    --color-border: var(--color-gray-200);
     --color-bg: var(--color-white);
     --color-subtle-1: var(--color-gray-10);
     --color-subtle-2: var(--color-gray-30);
@@ -643,30 +643,25 @@
   .rounded-lg {
     border-radius: var(--radius-lg);
   }
-  .border-r-1 {
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-r {
     border-right-style: var(--tw-border-style);
     border-right-width: 1px;
   }
   .border-border {
     border-color: var(--color-border);
   }
-  .bg-\[var\(--task-bg\)\] {
-    background-color: var(--task-bg);
+  .bg-\[\#688e9b\] {
+    background-color: #688e9b;
   }
-  .bg-subtle-1 {
-    background-color: var(--color-subtle-1);
+  .bg-bg {
+    background-color: var(--color-bg);
   }
-  .bg-gradient-to-br {
-    --tw-gradient-position: to bottom right in oklab;
-    background-image: linear-gradient(var(--tw-gradient-stops));
-  }
-  .from-gray-250 {
-    --tw-gradient-from: var(--color-gray-250);
-    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-  }
-  .to-gray-350 {
-    --tw-gradient-to: var(--color-gray-350);
-    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  .bg-subtle-3 {
+    background-color: var(--color-subtle-3);
   }
   .p-1\.5 {
     padding: calc(var(--spacing) * 1.5);
@@ -677,9 +672,9 @@
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
-  .text-3xs {
-    font-size: var(--text-3xs);
-    line-height: var(--tw-leading, var(--text-3xs--line-height));
+  .text-2xs {
+    font-size: var(--text-2xs);
+    line-height: var(--tw-leading, var(--text-2xs--line-height));
   }
   .text-sm {
     font-size: var(--text-sm);
@@ -698,6 +693,9 @@
   .text-\[1\.25rem\] {
     font-size: 1.25rem;
   }
+  .text-\[1\.325rem\] {
+    font-size: 1.325rem;
+  }
   .text-\[2\.6em\] {
     font-size: 2.6em;
   }
@@ -709,13 +707,12 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
-  .font-medium {
-    --tw-font-weight: var(--font-weight-medium);
-    font-weight: var(--font-weight-medium);
-  }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+  }
+  .text-ink {
+    color: var(--color-ink);
   }
   .text-ink-body {
     color: var(--color-ink-body);
@@ -728,6 +725,13 @@
   }
   .underline {
     text-decoration-line: underline;
+  }
+  .hover\:bg-subtle-2 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-subtle-2);
+      }
+    }
   }
   .hover\:bg-subtle-3 {
     &:hover {
@@ -745,21 +749,9 @@
   }
 }
 @layer components {
-  .gray-task {
-    --task-bg: var(--color-subtle-2);
-  }
-  .yellow-task {
-    --task-bg: var(--color-subtle-2);
-  }
-  .blue-task {
-    --task-bg: #edf3f3;
-  }
-  .green-task {
-    --task-bg: #edf3ee;
-  }
   .btn--icon {
     padding: calc(var(--spacing) * 0.5);
-    color: var(--color-gray-450);
+    color: var(--color-gray-500);
     border-radius: 50%;
     aspect-ratio: 1;
     display: grid;
@@ -812,48 +804,6 @@
   syntax: "*";
   inherits: false;
   initial-value: solid;
-}
-@property --tw-gradient-position {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-gradient-from {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #0000;
-}
-@property --tw-gradient-via {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #0000;
-}
-@property --tw-gradient-to {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #0000;
-}
-@property --tw-gradient-stops {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-gradient-via-stops {
-  syntax: "*";
-  inherits: false;
-}
-@property --tw-gradient-from-position {
-  syntax: "<length-percentage>";
-  inherits: false;
-  initial-value: 0%;
-}
-@property --tw-gradient-via-position {
-  syntax: "<length-percentage>";
-  inherits: false;
-  initial-value: 50%;
-}
-@property --tw-gradient-to-position {
-  syntax: "<length-percentage>";
-  inherits: false;
-  initial-value: 100%;
 }
 @property --tw-leading {
   syntax: "*";
