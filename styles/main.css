@@ -1,64 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gray-10: rgb(252, 253, 251);
-  --color-gray-30: rgb(247, 248, 246);
-  --color-gray-50: rgb(242, 243, 241);
-  --color-gray-70: rgb(237, 238, 236);
-  --color-gray-100: rgb(232, 233, 231);
-  --color-gray-150: rgb(220, 221, 219);
-  --color-gray-200: rgb(208, 209, 207);
-  --color-gray-250: rgb(196, 197, 195);
-  --color-gray-300: rgb(184, 185, 183);
-  --color-gray-350: rgb(172, 173, 171);
-  --color-gray-400: rgb(160, 161, 159);
-  --color-gray-450: rgb(148, 149, 147);
-  --color-gray-500: rgb(136, 137, 135);
-  --color-gray-550: rgb(124, 125, 123);
-  --color-gray-600: rgb(112, 113, 111);
-  --color-gray-650: rgb(100, 101, 99);
-  --color-gray-700: rgb(88, 89, 87);
-  --color-gray-750: rgb(76, 77, 75);
-  --color-gray-800: rgb(64, 65, 63);
-  --color-gray-850: rgb(52, 53, 51);
-  --color-gray-870: rgb(40, 41, 39);
-  --color-gray-900: rgb(28, 29, 27);
-
-  --color-ink: var(--color-gray-900);
-  --color-ink-detail: var(--color-gray-500);
-  --color-ink-body: var(--color-gray-650);
-
-  --color-border: var(--color-gray-150);
-
-  --color-bg: var(--color-white);
-  --color-subtle-1: var(--color-gray-10);
-  --color-subtle-2: var(--color-gray-30);
-  --color-subtle-3: var(--color-gray-50);
-
-  --text-3xs: 0.8rem; /* ~12.8px */
-  --text-2xs: 0.85rem; /* ~13.6px */
-  --text-xs: 0.9rem; /* ~14.4px */
-  --text-sm: 0.95rem; /* ~15.2px */
+  --text-3xs: 0.75rem; /* 12px */
+  --text-2xs: 0.8125rem; /* 13px */
+  --text-xs: 0.875rem; /* 14px */
+  --text-sm: 0.9375rem; /* 15px */
   --text-base: 1rem; /* 16px */
   --text-lg: 1.125rem; /* 18px */
   --text-xl: 1.25rem; /* 20px */
   --text-2xl: 1.5rem; /* 24px */
-  --text-3xl: 1.875rem; /* 30px */
-  --text-4xl: 2.25rem; /* 36px */
+  --text-3xl: 2rem; /* 32px */
+  --text-4xl: 2.5rem; /* 40px */
   --text-5xl: 3rem; /* 48px */
-  --text-6xl: 3.75rem; /* 60px */
-  --text-7xl: 4.5rem; /* 72px */
+  --text-6xl: 4rem; /* 64px */
+  --text-7xl: 5rem; /* 80px */
   --text-8xl: 6rem; /* 96px */
   --text-9xl: 8rem; /* 128px */
 
-  /* Line heights – tuned for clarity and readability */
-  --text-3xs--line-height: 1.4;
-  --text-2xs--line-height: 1.4;
-  --text-xs--line-height: 1.4;
-  --text-sm--line-height: 1.45;
+  --text-3xs--line-height: 1.5;
+  --text-2xs--line-height: 1.5;
+  --text-xs--line-height: 1.5;
+  --text-sm--line-height: 1.5;
   --text-base--line-height: 1.5;
-  --text-lg--line-height: 1.4;
-  --text-xl--line-height: 1.35;
+  --text-lg--line-height: 1.45;
+  --text-xl--line-height: 1.4;
   --text-2xl--line-height: 1.3;
   --text-3xl--line-height: 1.25;
   --text-4xl--line-height: 1.2;
@@ -66,32 +31,116 @@
   --text-6xl--line-height: 1.05;
   --text-7xl--line-height: 1;
   --text-8xl--line-height: 1;
-  --text-9xl--line-height: 1;
+  --text-9xl--line-height: 0.95;
 }
 
 @layer base {
+  :root {
+    --color-white: oklch(100% 0 0);
+    --color-black: oklch(0% 0 0);
+
+    --color-gray-10: oklch(18% 0.002 262);
+    --color-gray-50: oklch(22% 0.002 262);
+    --color-gray-100: oklch(26% 0.002 262);
+    --color-gray-150: oklch(32% 0.002 262);
+    --color-gray-200: oklch(38% 0.002 262);
+    --color-gray-250: oklch(44% 0.002 262);
+    --color-gray-300: oklch(50% 0.002 262);
+    --color-gray-450: oklch(56% 0.002 262);
+    --color-gray-500: oklch(63% 0.002 262);
+    --color-gray-600: oklch(70% 0.002 262);
+    --color-gray-700: oklch(77% 0.002 262);
+    --color-gray-800: oklch(84% 0.002 262);
+    --color-gray-900: oklch(91% 0.001 262);
+    --color-gray-950: oklch(96% 0.001 262);
+
+    --color-ink: var(--color-white);
+    --color-ink-detail: var(--color-gray-450);
+    --color-ink-body: var(--color-gray-600);
+
+    --color-border: var(--color-gray-150);
+
+    --color-bg: var(--color-black);
+    --color-subtle-1: var(--color-gray-10);
+    --color-subtle-2: var(--color-gray-50);
+    --color-subtle-3: var(--color-gray-100);
+  }
+
   html,
   body {
+    background: var(--color-bg);
     color: var(--color-ink);
     font-size: 16px;
     line-height: var(--text-base--line-height);
   }
 }
 
-@layer components {
+@layer utilities {
+  /* Text */
+  .text-ink {
+    color: var(--color-ink);
+  }
+
+  .text-ink-detail {
+    color: var(--color-ink-detail);
+  }
+
+  .text-ink-body {
+    color: var(--color-ink-body);
+  }
+
+  /* Border */
+
+  .border-default {
+    border-color: var(--color-border);
+  }
+
+  /* Subtle */
+  .subtle-1 {
+    background-color: var(--color-subtle-1);
+  }
+
+  .subtle-2 {
+    background-color: var(--color-subtle-2);
+  }
+
+  .subtle-3 {
+    background-color: var(--color-subtle-3);
+  }
+
+  .hover-subtle-1 {
+    &:hover {
+      background-color: var(--color-subtle-1);
+    }
+  }
+
+  .hover-subtle-2 {
+    &:hover {
+      background-color: var(--color-subtle-2);
+    }
+  }
+
+  .hover-subtle-3 {
+    &:hover {
+      background-color: var(--color-subtle-3);
+    }
+  }
+
   /* Buttons */
   .btn--icon {
-    @apply text-gray-500 p-0.5;
+    inline-size: 2em;
+    block-size: 2em;
 
+    color: var(--color-ink-body);
     border-radius: 50%;
     aspect-ratio: 1;
     display: grid;
     place-items: center;
-  }
 
-  /* Text */
-  .caption {
-    @apply text-sm;
+    &:hover {
+      background-color: var(--color-subtle-1);
+      color: var(--color-ink);
+    }
   }
 
   /* Icons */
@@ -104,6 +153,6 @@
 
   /* Layout */
   .action-bar {
-    @apply flex items-center px-2 min-h-[2.5rem] min-h-[2.5rem];
+    @apply flex items-center px-4 min-h-[2.5rem] min-h-[2.5rem];
   }
 }
