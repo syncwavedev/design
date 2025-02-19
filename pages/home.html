@@ -53,28 +53,28 @@
         <div class="flex-1 overflow-y-auto mt-2">
           <div class="flex gap-6 text-sm">
             <!-- Dynamic task columns with headers -->
-            <div class="">
+            <div class="w-64">
               <div class="mb-2 text-ink-body text-2xs">Backlog</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 20 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
               </div>
             </div>
-            <div class="">
+            <div class="w-64">
               <div class="mb-2 text-ink-body text-2xs">In Progress</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 4 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
               </div>
             </div>
-            <div class="">
+            <div class="w-64">
               <div class="mb-2 text-ink-body text-2xs">Review</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 8 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
               </div>
             </div>
-            <div class="">
+            <div class="w-64">
               <div class="mb-2 text-ink-body text-2xs">Done</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 20 }} {{ template "boards/task-tile.html" . }} {{

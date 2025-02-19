@@ -577,11 +577,23 @@
   .min-h-\[100px\] {
     min-height: 100px;
   }
+  .w-54 {
+    width: calc(var(--spacing) * 54);
+  }
+  .w-58 {
+    width: calc(var(--spacing) * 58);
+  }
+  .w-62 {
+    width: calc(var(--spacing) * 62);
+  }
   .w-64 {
     width: calc(var(--spacing) * 64);
   }
   .w-72 {
     width: calc(var(--spacing) * 72);
+  }
+  .w-82 {
+    width: calc(var(--spacing) * 82);
   }
   .w-124 {
     width: calc(var(--spacing) * 124);
