@@ -19,16 +19,16 @@ type Board struct {
 
 func MakeBoards() []Board {
 	boards := []Board{
-		{ID: 1, Name: "🚀 Product Roadmap"},
+		{ID: 1, Name: "Product Roadmap"},
 		{ID: 2, Name: "Engineering Sprints"},
-		{ID: 3, Name: "✨ Feature Ideas"},
-		{ID: 4, Name: "🐛 Bug Tracking"},
+		{ID: 3, Name: "Feature Ideas"},
+		{ID: 4, Name: "Bug Tracking"},
 		{ID: 5, Name: "Marketing Campaigns"},
-		{ID: 6, Name: "💡 Innovation Lab"},
+		{ID: 6, Name: "Innovation Lab"},
 		{ID: 7, Name: "Customer Support"},
-		{ID: 8, Name: "🎨 Design Projects"},
+		{ID: 8, Name: "Design Projects"},
 		{ID: 9, Name: "Team Operations"},
-		{ID: 10, Name: "📊 Growth Metrics"},
+		{ID: 10, Name: "Growth Metrics"},
 	}
 
 	return boards

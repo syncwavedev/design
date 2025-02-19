@@ -16,22 +16,23 @@
           <button class="btn--icon">{{ template "plus.html" . }}</button>
         </div>
 
-        <div
-          class="overflow-y-auto text-2xs flex flex-col gap-2 items-start mt-2"
-        >
+        <div class="overflow-y-auto text-sm flex flex-col items-start mt-2">
           {{ range .Boards }}
           <div
-            class="flex gap-2 items-center p-2 border border-default rounded-full"
+            class="flex gap-2 items-center p-2 text-ink-body hover-text-ink hover-subtle-1 rounded-lg w-full"
           >
+            {{ template "hashtag.html" . }}
             <span class="truncate leading-snug"> {{.Name}} </span>
           </div>
           {{ end }}
         </div>
-        <div class="action-bar mt-auto mb-2 text-2xs">
-          <button class="btn text-[2em]">
-            {{ template "avatar.html" "A" }}
-          </button>
-          <span class="ml-2">Andrei</span>
+        <div class="action-bar mt-auto mb-2">
+          <div class="px-2 text-sm">
+            <button class="btn text-[2em]">
+              {{ template "avatar.html" "A" }}
+            </button>
+            <span class="ml-2 text-ink-body">Andrei</span>
+          </div>
           <button class="ml-auto btn--icon text-base">
             {{ template "cog.html" . }}
           </button>
