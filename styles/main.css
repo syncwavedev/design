@@ -39,7 +39,7 @@
   :root {
     --color-white: oklch(100% 0 0deg);
     --color-gray-10: oklch(99% 0.005 114deg);
-    --color-gray-30: oklch(98% 0.008 114deg);
+    --color-gray-30: oklch(97% 0.008 114deg);
     --color-gray-50: oklch(95.5% 0.015 114deg);
     --color-gray-70: oklch(93% 0.015 114deg);
     --color-gray-100: oklch(90% 0.015 114deg);
@@ -74,7 +74,7 @@
     @media (prefers-color-scheme: dark) {
       --color-white: oklch(100% 0 0deg);
       --color-gray-10: oklch(99% 0.003 247deg);
-      --color-gray-30: oklch(98% 0.005 247deg);
+      --color-gray-30: oklch(97% 0.005 247deg);
       --color-gray-50: oklch(95.5% 0.008 247deg);
       --color-gray-70: oklch(93% 0.008 247deg);
       --color-gray-100: oklch(90% 0.008 247deg);
