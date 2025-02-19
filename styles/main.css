@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  --text-4xs: 0.6875rem; /* 11px */
   --text-3xs: 0.75rem; /* 12px */
   --text-2xs: 0.8125rem; /* 13px */
   --text-xs: 0.875rem; /* 14px */
@@ -36,34 +37,75 @@
 
 @layer base {
   :root {
-    --color-white: oklch(100% 0 0);
-    --color-black: oklch(0% 0 0);
+    --color-white: oklch(100% 0 0deg);
+    --color-gray-10: oklch(99% 0.005 114deg);
+    --color-gray-30: oklch(98% 0.008 114deg);
+    --color-gray-50: oklch(95.5% 0.015 114deg);
+    --color-gray-70: oklch(93% 0.015 114deg);
+    --color-gray-100: oklch(90% 0.015 114deg);
+    --color-gray-150: oklch(86% 0.015 114deg);
+    --color-gray-200: oklch(82% 0.015 114deg);
+    --color-gray-250: oklch(78% 0.015 114deg);
+    --color-gray-300: oklch(74% 0.015 114deg);
+    --color-gray-350: oklch(70% 0.015 114deg);
+    --color-gray-400: oklch(66% 0.015 114deg);
+    --color-gray-450: oklch(62% 0.015 114deg);
+    --color-gray-500: oklch(58% 0.015 114deg);
+    --color-gray-550: oklch(54% 0.015 114deg);
+    --color-gray-600: oklch(50% 0.015 114deg);
+    --color-gray-650: oklch(46% 0.015 114deg);
+    --color-gray-700: oklch(42% 0.015 114deg);
+    --color-gray-750: oklch(38% 0.015 114deg);
+    --color-gray-800: oklch(34% 0.015 114deg);
+    --color-gray-850: oklch(30% 0.015 114deg);
+    --color-gray-870: oklch(26% 0.015 114deg);
+    --color-gray-900: oklch(22% 0.015 114deg);
+    --color-black: oklch(0% 0 0deg);
 
-    --color-gray-10: oklch(18% 0.002 262);
-    --color-gray-50: oklch(22% 0.002 262);
-    --color-gray-100: oklch(26% 0.002 262);
-    --color-gray-150: oklch(32% 0.002 262);
-    --color-gray-200: oklch(38% 0.002 262);
-    --color-gray-250: oklch(44% 0.002 262);
-    --color-gray-300: oklch(50% 0.002 262);
-    --color-gray-450: oklch(56% 0.002 262);
-    --color-gray-500: oklch(63% 0.002 262);
-    --color-gray-600: oklch(70% 0.002 262);
-    --color-gray-700: oklch(77% 0.002 262);
-    --color-gray-800: oklch(84% 0.002 262);
-    --color-gray-900: oklch(91% 0.001 262);
-    --color-gray-950: oklch(96% 0.001 262);
-
-    --color-ink: var(--color-white);
-    --color-ink-detail: var(--color-gray-450);
+    --color-bg: var(--color-white);
+    --color-ink: var(--color-gray-900);
     --color-ink-body: var(--color-gray-600);
-
+    --color-ink-detail: var(--color-gray-400);
     --color-border: var(--color-gray-150);
-
-    --color-bg: var(--color-black);
     --color-subtle-1: var(--color-gray-10);
-    --color-subtle-2: var(--color-gray-50);
-    --color-subtle-3: var(--color-gray-100);
+    --color-subtle-2: var(--color-gray-30);
+    --color-subtle-3: var(--color-gray-50);
+
+    @media (prefers-color-scheme: dark) {
+      --color-white: oklch(100% 0 0deg);
+      --color-gray-10: oklch(99% 0.003 247deg);
+      --color-gray-30: oklch(98% 0.005 247deg);
+      --color-gray-50: oklch(95.5% 0.008 247deg);
+      --color-gray-70: oklch(93% 0.008 247deg);
+      --color-gray-100: oklch(90% 0.008 247deg);
+      --color-gray-150: oklch(86% 0.008 247deg);
+      --color-gray-200: oklch(82% 0.008 247deg);
+      --color-gray-250: oklch(78% 0.008 247deg);
+      --color-gray-300: oklch(74% 0.008 247deg);
+      --color-gray-350: oklch(70% 0.008 247deg);
+      --color-gray-400: oklch(66% 0.008 247deg);
+      --color-gray-450: oklch(62% 0.008 247deg);
+      --color-gray-500: oklch(58% 0.008 247deg);
+      --color-gray-550: oklch(54% 0.008 247deg);
+      --color-gray-600: oklch(50% 0.008 247deg);
+      --color-gray-650: oklch(46% 0.008 247deg);
+      --color-gray-700: oklch(42% 0.008 247deg);
+      --color-gray-750: oklch(38% 0.008 247deg);
+      --color-gray-800: oklch(34% 0.008 247deg);
+      --color-gray-850: oklch(30% 0.008 247deg);
+      --color-gray-870: oklch(26% 0.008 247deg);
+      --color-gray-900: oklch(22% 0.008 247deg);
+      --color-black: oklch(0% 0 0deg);
+
+      --color-bg: var(--color-black);
+      --color-ink: var(--color-gray-50);
+      --color-ink-body: var(--color-gray-300);
+      --color-ink-detail: var(--color-gray-500);
+      --color-border: var(--color-gray-750);
+      --color-subtle-1: var(--color-gray-900);
+      --color-subtle-2: var(--color-gray-870);
+      --color-subtle-3: var(--color-gray-850);
+    }
   }
 
   html,
@@ -89,6 +131,10 @@
     color: var(--color-ink-body);
   }
 
+  .text-white {
+    color: var(--color-white);
+  }
+
   /* Border */
 
   .border-default {
@@ -96,6 +142,10 @@
   }
 
   /* Subtle */
+  .bg-default {
+    background-color: var(--color-bg);
+  }
+
   .subtle-1 {
     background-color: var(--color-subtle-1);
   }
@@ -138,7 +188,7 @@
     place-items: center;
 
     &:hover {
-      background-color: var(--color-subtle-1);
+      background-color: var(--color-subtle-2);
       color: var(--color-ink);
     }
   }
@@ -153,6 +203,6 @@
 
   /* Layout */
   .action-bar {
-    @apply flex items-center px-4 min-h-[2.5rem] min-h-[2.5rem];
+    @apply flex items-center min-h-[2.5rem] min-h-[2.5rem];
   }
 }

@@ -12,6 +12,38 @@ import (
 	"time"
 )
 
+type Board struct {
+	ID   int
+	Name string
+}
+
+func MakeBoards() []Board {
+	boards := []Board{
+		{ID: 1, Name: "🚀 Product Roadmap"},
+		{ID: 2, Name: "Engineering Sprints"},
+		{ID: 3, Name: "✨ Feature Ideas"},
+		{ID: 4, Name: "🐛 Bug Tracking"},
+		{ID: 5, Name: "Marketing Campaigns"},
+		{ID: 6, Name: "💡 Innovation Lab"},
+		{ID: 7, Name: "Customer Support"},
+		{ID: 8, Name: "🎨 Design Projects"},
+		{ID: 9, Name: "Team Operations"},
+		{ID: 10, Name: "📊 Growth Metrics"},
+	}
+
+	return boards
+}
+
+type PageData struct {
+	Boards []Board
+}
+
+func NewPageData() *PageData {
+	return &PageData{
+		Boards: MakeBoards(),
+	}
+}
+
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/public/", public)
@@ -75,7 +107,7 @@ func pageHandler(w http.ResponseWriter, r *http.Request) {
 	// Execute the page template by its relative name.
 	// We use the base name of the page file relative to "pages" directory.
 	pageName := filepath.Base(pagePath)
-	if err := tmpl.ExecuteTemplate(w, pageName, nil); err != nil {
+	if err := tmpl.ExecuteTemplate(w, pageName, NewPageData()); err != nil {
 		log.Printf("execute %s: %v", pagePath, err)
 	}
 }

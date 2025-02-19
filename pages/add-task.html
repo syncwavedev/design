@@ -1,4 +1,3 @@
-<!doctype html>
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -6,38 +5,34 @@
     <link href="/public/main.css" rel="stylesheet" />
   </head>
   <body>
-    <main class="flex w-full h-screen">
-      <div class="w-64 flex flex-col border-r border-default px-2">
+    <main class="flex w-full h-screen relative">
+      <div class="w-72 flex flex-col border-r border-default">
         <div class="action-bar sticky top-0">
-          <button class="btn--icon">{{ template "search.html" . }}</button>
+          <button class="btn text-[1.5rem]">
+            {{ template "avatar.html" "A" }}
+          </button>
           <button class="ml-auto btn--icon">
             {{ template "panel-right.html" . }}
           </button>
           <button class="btn--icon">{{ template "plus.html" . }}</button>
         </div>
-
-        <div
-          class="overflow-y-auto text-2xs flex flex-col gap-2 items-start mt-2"
-        >
-          {{ range .Boards }}
-          <div
-            class="flex gap-2 items-center p-2 border border-default rounded-full"
-          >
-            <span class="truncate leading-snug"> {{.Name}} </span>
+        <div class="overflow-y-auto text-sm">
+          {{ range seq 10 }}
+          <div class="flex gap-2 py-2 px-4 hover-subtle-1">
+            <div class="text-[2.86em]">{{ template "avatar.html" "B" }}</div>
+            <div
+              class="flex flex-col gap-0.5 justify-center max-w-full overflow-hidden"
+            >
+              <span class="label truncate leading-snug"> Board Title </span>
+              <span class="text-ink-detail truncate text-2xs">
+                Latest user action here might be long
+              </span>
+            </div>
           </div>
           {{ end }}
         </div>
-        <div class="action-bar mt-auto mb-2 text-2xs">
-          <button class="btn text-[2em]">
-            {{ template "avatar.html" "A" }}
-          </button>
-          <span class="ml-2">Andrei</span>
-          <button class="ml-auto btn--icon text-base">
-            {{ template "cog.html" . }}
-          </button>
-        </div>
       </div>
-      <div class="flex-1 flex flex-col px-6">
+      <div class="flex-1 flex flex-col px-2">
         <!-- Fixed Header -->
         <div class="sticky top-0 z-10">
           <div class="action-bar">
@@ -50,37 +45,55 @@
         </div>
 
         <!-- Scrollable Tasks Container -->
-        <div class="flex-1 overflow-y-auto mt-2">
+        <div class="flex-1 overflow-y-auto px-4 mt-2">
           <div class="flex gap-6 text-sm">
             <!-- Dynamic task columns with headers -->
             <div class="">
-              <div class="mb-2 text-ink-body text-2xs">Backlog</div>
+              <div class="mb-2 text-ink-body">Backlog</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 20 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
               </div>
             </div>
             <div class="">
-              <div class="mb-2 text-ink-body text-2xs">In Progress</div>
+              <div class="mb-2 text-ink-body">In Progress</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 4 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
               </div>
             </div>
             <div class="">
-              <div class="mb-2 text-ink-body text-2xs">Review</div>
+              <div class="mb-2 text-ink-body">Review</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 8 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
               </div>
             </div>
             <div class="">
-              <div class="mb-2 text-ink-body text-2xs">Done</div>
+              <div class="mb-2 text-ink-body">Done</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 20 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-124 flex flex-col border-l border-default absolute right-0 top-0 bottom-0 bg-default z-10"
+      >
+        <div class="action-bar sticky top-0">
+          <div class="text-xs font-semibold">SYNC-1</div>
+          <button class="ml-auto btn--icon text-lg">
+            {{ template "times.html" . }}
+          </button>
+        </div>
+        <div class="overflow-y-auto px-4 py-2">
+          <div class="flex flex-col gap-1">
+            <textarea
+              class="rounded-lg text-sm min-h-[100px]"
+              placeholder="Write here..."
+            ></textarea>
           </div>
         </div>
       </div>
