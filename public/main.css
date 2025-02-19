@@ -571,6 +571,9 @@
   .h-\[1em\] {
     height: 1em;
   }
+  .h-full {
+    height: 100%;
+  }
   .h-screen {
     height: 100vh;
   }
@@ -580,20 +583,17 @@
   .w-64 {
     width: calc(var(--spacing) * 64);
   }
-  .w-72 {
-    width: calc(var(--spacing) * 72);
+  .w-82 {
+    width: calc(var(--spacing) * 82);
   }
-  .w-124 {
-    width: calc(var(--spacing) * 124);
+  .w-96 {
+    width: calc(var(--spacing) * 96);
   }
   .w-\[1em\] {
     width: 1em;
   }
   .w-full {
     width: 100%;
-  }
-  .max-w-full {
-    max-width: 100%;
   }
   .flex-1 {
     flex: 1;
@@ -613,9 +613,6 @@
   .justify-between {
     justify-content: space-between;
   }
-  .justify-center {
-    justify-content: center;
-  }
   .gap-0\.5 {
     gap: calc(var(--spacing) * 0.5);
   }
@@ -632,9 +629,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-  }
-  .overflow-hidden {
-    overflow: hidden;
   }
   .overflow-y-auto {
     overflow-y: auto;
@@ -694,14 +688,11 @@
   .text-\[0\.45em\] {
     font-size: 0.45em;
   }
-  .text-\[1\.5rem\] {
-    font-size: 1.5rem;
+  .text-\[1\.5em\] {
+    font-size: 1.5em;
   }
   .text-\[1\.25rem\] {
     font-size: 1.25rem;
-  }
-  .text-\[2\.86em\] {
-    font-size: 2.86em;
   }
   .text-\[2em\] {
     font-size: 2em;
@@ -728,34 +719,34 @@
 @layer base {
   :root {
     --color-white: oklch(100% 0 0deg);
-    --color-gray-10: oklch(99% 0.005 114deg);
-    --color-gray-30: oklch(97% 0.008 114deg);
-    --color-gray-50: oklch(95.5% 0.015 114deg);
-    --color-gray-70: oklch(93% 0.015 114deg);
-    --color-gray-100: oklch(90% 0.015 114deg);
-    --color-gray-150: oklch(86% 0.015 114deg);
-    --color-gray-200: oklch(82% 0.015 114deg);
-    --color-gray-250: oklch(78% 0.015 114deg);
-    --color-gray-300: oklch(74% 0.015 114deg);
-    --color-gray-350: oklch(70% 0.015 114deg);
-    --color-gray-400: oklch(66% 0.015 114deg);
-    --color-gray-450: oklch(62% 0.015 114deg);
-    --color-gray-500: oklch(58% 0.015 114deg);
-    --color-gray-550: oklch(54% 0.015 114deg);
-    --color-gray-600: oklch(50% 0.015 114deg);
-    --color-gray-650: oklch(46% 0.015 114deg);
-    --color-gray-700: oklch(42% 0.015 114deg);
-    --color-gray-750: oklch(38% 0.015 114deg);
-    --color-gray-800: oklch(34% 0.015 114deg);
-    --color-gray-850: oklch(30% 0.015 114deg);
-    --color-gray-870: oklch(26% 0.015 114deg);
-    --color-gray-900: oklch(22% 0.015 114deg);
+    --color-gray-10: oklch(98% 0.005 124deg);
+    --color-gray-30: oklch(97% 0.008 124deg);
+    --color-gray-50: oklch(95.5% 0.012 124deg);
+    --color-gray-70: oklch(93% 0.012 124deg);
+    --color-gray-100: oklch(90% 0.012 124deg);
+    --color-gray-150: oklch(86% 0.012 124deg);
+    --color-gray-200: oklch(82% 0.012 124deg);
+    --color-gray-250: oklch(78% 0.012 124deg);
+    --color-gray-300: oklch(74% 0.012 124deg);
+    --color-gray-350: oklch(70% 0.012 124deg);
+    --color-gray-400: oklch(66% 0.012 124deg);
+    --color-gray-450: oklch(62% 0.012 124deg);
+    --color-gray-500: oklch(58% 0.012 124deg);
+    --color-gray-550: oklch(54% 0.012 124deg);
+    --color-gray-600: oklch(50% 0.012 124deg);
+    --color-gray-650: oklch(46% 0.012 124deg);
+    --color-gray-700: oklch(42% 0.012 124deg);
+    --color-gray-750: oklch(38% 0.012 124deg);
+    --color-gray-800: oklch(34% 0.012 124deg);
+    --color-gray-850: oklch(30% 0.012 124deg);
+    --color-gray-870: oklch(26% 0.012 124deg);
+    --color-gray-900: oklch(22% 0.012 124deg);
     --color-black: oklch(0% 0 0deg);
     --color-bg: var(--color-white);
     --color-ink: var(--color-gray-900);
     --color-ink-body: var(--color-gray-600);
     --color-ink-detail: var(--color-gray-400);
-    --color-border: var(--color-gray-100);
+    --color-border: var(--color-gray-50);
     --color-subtle-1: var(--color-gray-10);
     --color-subtle-2: var(--color-gray-30);
     --color-subtle-3: var(--color-gray-50);
@@ -783,13 +774,14 @@
       --color-gray-850: oklch(30% 0.008 247deg);
       --color-gray-870: oklch(26% 0.008 247deg);
       --color-gray-900: oklch(22% 0.008 247deg);
+      --color-gray-950: oklch(18% 0.008 247deg);
       --color-black: oklch(0% 0 0deg);
       --color-bg: var(--color-black);
       --color-ink: var(--color-gray-50);
       --color-ink-body: var(--color-gray-300);
       --color-ink-detail: var(--color-gray-500);
       --color-border: var(--color-gray-850);
-      --color-subtle-1: var(--color-gray-900);
+      --color-subtle-1: var(--color-gray-950);
       --color-subtle-2: var(--color-gray-870);
       --color-subtle-3: var(--color-gray-850);
     }
@@ -858,7 +850,7 @@
     display: grid;
     place-items: center;
     &:hover {
-      background-color: var(--color-subtle-2);
+      background-color: var(--color-subtle-1);
       color: var(--color-ink);
     }
   }
