@@ -523,9 +523,6 @@
   }
 }
 @layer utilities {
-  .absolute {
-    position: absolute;
-  }
   .relative {
     position: relative;
   }
@@ -538,14 +535,11 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
-  .right-0 {
-    right: calc(var(--spacing) * 0);
-  }
-  .bottom-0 {
-    bottom: calc(var(--spacing) * 0);
-  }
   .z-10 {
     z-index: 10;
+  }
+  .my-4 {
+    margin-block: calc(var(--spacing) * 4);
   }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
@@ -583,11 +577,8 @@
   .w-64 {
     width: calc(var(--spacing) * 64);
   }
-  .w-82 {
-    width: calc(var(--spacing) * 82);
-  }
-  .w-96 {
-    width: calc(var(--spacing) * 96);
+  .w-124 {
+    width: calc(var(--spacing) * 124);
   }
   .w-\[1em\] {
     width: 1em;
@@ -595,8 +586,23 @@
   .w-full {
     width: 100%;
   }
+  .min-w-0 {
+    min-width: calc(var(--spacing) * 0);
+  }
+  .min-w-64 {
+    min-width: calc(var(--spacing) * 64);
+  }
+  .min-w-124 {
+    min-width: calc(var(--spacing) * 124);
+  }
   .flex-1 {
     flex: 1;
+  }
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+  .grow {
+    flex-grow: 1;
   }
   .flex-col {
     flex-direction: column;
@@ -630,6 +636,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+  .overflow-auto {
+    overflow: auto;
+  }
   .overflow-y-auto {
     overflow-y: auto;
   }
@@ -650,20 +659,23 @@
   .bg-\[\#3F6B7E\] {
     background-color: #3F6B7E;
   }
+  .bg-white {
+    background-color: var(--color-white);
+  }
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
-  .px-4 {
-    padding-inline: calc(var(--spacing) * 4);
-  }
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
+  }
+  .pb-4 {
+    padding-bottom: calc(var(--spacing) * 4);
   }
   .text-2xs {
     font-size: var(--text-2xs);
@@ -672,10 +684,6 @@
   .text-base {
     font-size: var(--text-base);
     line-height: var(--tw-leading, var(--text-base--line-height));
-  }
-  .text-lg {
-    font-size: var(--text-lg);
-    line-height: var(--tw-leading, var(--text-lg--line-height));
   }
   .text-sm {
     font-size: var(--text-sm);
@@ -693,9 +701,6 @@
   }
   .text-\[1\.25rem\] {
     font-size: 1.25rem;
-  }
-  .text-\[2em\] {
-    font-size: 2em;
   }
   .leading-snug {
     --tw-leading: var(--leading-snug);
@@ -719,9 +724,9 @@
 @layer base {
   :root {
     --color-white: oklch(100% 0 0deg);
-    --color-gray-10: oklch(98% 0.005 124deg);
+    --color-gray-10: oklch(98.5% 0.004 124deg);
     --color-gray-30: oklch(97% 0.008 124deg);
-    --color-gray-50: oklch(95.5% 0.012 124deg);
+    --color-gray-50: oklch(95% 0.012 124deg);
     --color-gray-70: oklch(93% 0.012 124deg);
     --color-gray-100: oklch(90% 0.012 124deg);
     --color-gray-150: oklch(86% 0.012 124deg);
@@ -750,40 +755,42 @@
     --color-subtle-1: var(--color-gray-10);
     --color-subtle-2: var(--color-gray-30);
     --color-subtle-3: var(--color-gray-50);
+    --color-subtle-4: var(--color-gray-70);
     @media (prefers-color-scheme: dark) {
       --color-white: oklch(100% 0 0deg);
-      --color-gray-10: oklch(99% 0.003 247deg);
-      --color-gray-30: oklch(97% 0.005 247deg);
-      --color-gray-50: oklch(95.5% 0.008 247deg);
-      --color-gray-70: oklch(93% 0.008 247deg);
-      --color-gray-100: oklch(90% 0.008 247deg);
-      --color-gray-150: oklch(86% 0.008 247deg);
-      --color-gray-200: oklch(82% 0.008 247deg);
-      --color-gray-250: oklch(78% 0.008 247deg);
-      --color-gray-300: oklch(74% 0.008 247deg);
-      --color-gray-350: oklch(70% 0.008 247deg);
-      --color-gray-400: oklch(66% 0.008 247deg);
-      --color-gray-450: oklch(62% 0.008 247deg);
-      --color-gray-500: oklch(58% 0.008 247deg);
-      --color-gray-550: oklch(54% 0.008 247deg);
-      --color-gray-600: oklch(50% 0.008 247deg);
-      --color-gray-650: oklch(46% 0.008 247deg);
-      --color-gray-700: oklch(42% 0.008 247deg);
-      --color-gray-750: oklch(38% 0.008 247deg);
-      --color-gray-800: oklch(34% 0.008 247deg);
-      --color-gray-850: oklch(30% 0.008 247deg);
-      --color-gray-870: oklch(26% 0.008 247deg);
-      --color-gray-900: oklch(22% 0.008 247deg);
-      --color-gray-950: oklch(18% 0.008 247deg);
+      --color-gray-10: oklch(98.5% 0.003 239deg);
+      --color-gray-30: oklch(97% 0.006 239deg);
+      --color-gray-50: oklch(95% 0.006 239deg);
+      --color-gray-70: oklch(93% 0.006 239deg);
+      --color-gray-100: oklch(90% 0.006 239deg);
+      --color-gray-150: oklch(86% 0.006 239deg);
+      --color-gray-200: oklch(82% 0.006 239deg);
+      --color-gray-250: oklch(78% 0.006 239deg);
+      --color-gray-300: oklch(74% 0.006 239deg);
+      --color-gray-350: oklch(70% 0.006 239deg);
+      --color-gray-400: oklch(66% 0.006 239deg);
+      --color-gray-450: oklch(62% 0.006 239deg);
+      --color-gray-500: oklch(58% 0.006 239deg);
+      --color-gray-550: oklch(54% 0.006 239deg);
+      --color-gray-650: oklch(46% 0.006 239deg);
+      --color-gray-600: oklch(50% 0.006 239deg);
+      --color-gray-700: oklch(42% 0.006 239deg);
+      --color-gray-750: oklch(38% 0.006 239deg);
+      --color-gray-800: oklch(34% 0.006 239deg);
+      --color-gray-850: oklch(30% 0.006 239deg);
+      --color-gray-870: oklch(26% 0.006 239deg);
+      --color-gray-890: oklch(24% 0.006 239deg);
+      --color-gray-900: oklch(22% 0.006 239deg);
       --color-black: oklch(0% 0 0deg);
-      --color-bg: var(--color-black);
+      --color-bg: var(--color-gray-900);
       --color-ink: var(--color-gray-50);
       --color-ink-body: var(--color-gray-300);
       --color-ink-detail: var(--color-gray-500);
       --color-border: var(--color-gray-850);
-      --color-subtle-1: var(--color-gray-950);
+      --color-subtle-1: var(--color-gray-890);
       --color-subtle-2: var(--color-gray-870);
       --color-subtle-3: var(--color-gray-850);
+      --color-subtle-4: var(--color-gray-800);
     }
   }
   html, body {
@@ -791,6 +798,9 @@
     color: var(--color-ink);
     font-size: 16px;
     line-height: var(--text-base--line-height);
+  }
+  hr {
+    color: var(--color-border);
   }
 }
 @layer utilities {
@@ -826,6 +836,9 @@
   .subtle-3 {
     background-color: var(--color-subtle-3);
   }
+  .subtle-4 {
+    background-color: var(--color-subtle-4);
+  }
   .hover-subtle-1 {
     &:hover {
       background-color: var(--color-subtle-1);
@@ -841,6 +854,11 @@
       background-color: var(--color-subtle-3);
     }
   }
+  .hover-subtle-4 {
+    &:hover {
+      background-color: var(--color-subtle-4);
+    }
+  }
   .btn--icon {
     inline-size: 2em;
     block-size: 2em;
@@ -850,7 +868,7 @@
     display: grid;
     place-items: center;
     &:hover {
-      background-color: var(--color-subtle-1);
+      background-color: var(--color-subtle-2);
       color: var(--color-ink);
     }
   }
