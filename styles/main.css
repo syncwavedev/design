@@ -179,6 +179,7 @@
   }
 
   /* Buttons */
+
   .btn--icon {
     inline-size: 2em;
     block-size: 2em;
@@ -188,6 +189,24 @@
     aspect-ratio: 1;
     display: grid;
     place-items: center;
+
+    &:hover {
+      background-color: var(--color-subtle-2);
+      color: var(--color-ink);
+    }
+  }
+
+  .btn--block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: var(--radius-sm);
+
+    height: 2em;
+    padding: 0em 0.5em;
+
+    color: var(--color-ink-body);
 
     &:hover {
       background-color: var(--color-subtle-2);

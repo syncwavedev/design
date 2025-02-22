@@ -538,8 +538,11 @@
   .z-10 {
     z-index: 10;
   }
-  .my-4 {
-    margin-block: calc(var(--spacing) * 4);
+  .my-2 {
+    margin-block: calc(var(--spacing) * 2);
+  }
+  .my-3 {
+    margin-block: calc(var(--spacing) * 3);
   }
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
@@ -549,6 +552,9 @@
   }
   .mb-2 {
     margin-bottom: calc(var(--spacing) * 2);
+  }
+  .ml-1\.5 {
+    margin-left: calc(var(--spacing) * 1.5);
   }
   .ml-2 {
     margin-left: calc(var(--spacing) * 2);
@@ -625,8 +631,17 @@
   .gap-1 {
     gap: calc(var(--spacing) * 1);
   }
+  .gap-1\.5 {
+    gap: calc(var(--spacing) * 1.5);
+  }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
+  }
+  .gap-3 {
+    gap: calc(var(--spacing) * 3);
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
   }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
@@ -668,6 +683,9 @@
   .px-2 {
     padding-inline: calc(var(--spacing) * 2);
   }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
   }
@@ -680,6 +698,10 @@
   .text-2xs {
     font-size: var(--text-2xs);
     line-height: var(--tw-leading, var(--text-2xs--line-height));
+  }
+  .text-3xs {
+    font-size: var(--text-3xs);
+    line-height: var(--tw-leading, var(--text-3xs--line-height));
   }
   .text-base {
     font-size: var(--text-base);
@@ -699,8 +721,14 @@
   .text-\[1\.5em\] {
     font-size: 1.5em;
   }
+  .text-\[1\.25em\] {
+    font-size: 1.25em;
+  }
   .text-\[1\.25rem\] {
     font-size: 1.25rem;
+  }
+  .text-\[1\.325em\] {
+    font-size: 1.325em;
   }
   .leading-snug {
     --tw-leading: var(--leading-snug);
@@ -846,6 +874,19 @@
     aspect-ratio: 1;
     display: grid;
     place-items: center;
+    &:hover {
+      background-color: var(--color-subtle-2);
+      color: var(--color-ink);
+    }
+  }
+  .btn--block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    height: 2em;
+    padding: 0em 0.5em;
+    color: var(--color-ink-body);
     &:hover {
       background-color: var(--color-subtle-2);
       color: var(--color-ink);
