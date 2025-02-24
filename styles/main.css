@@ -38,10 +38,10 @@
 @layer base {
   :root {
     --color-white: oklch(100% 0 0deg);
-    --color-gray-10: oklch(98.2% 0 0deg);
-    --color-gray-30: oklch(96.4% 0 0deg);
-    --color-gray-50: oklch(94.6% 0 0deg);
-    --color-gray-70: oklch(92.8% 0 0deg);
+    --color-gray-10: oklch(98.2% 0.0029 126deg);
+    --color-gray-30: oklch(96.4% 0.0029 126deg);
+    --color-gray-50: oklch(94.6% 0.0029 126deg);
+    --color-gray-70: oklch(92.8% 0.0029 126deg);
     --color-gray-100: oklch(91% 0 0deg);
     --color-gray-150: oklch(87.4% 0 0deg);
     --color-gray-200: oklch(83.8% 0 0deg);
@@ -58,12 +58,12 @@
     --color-gray-750: oklch(44.2% 0 0deg);
     --color-gray-800: oklch(40.6% 0 0deg);
     --color-gray-850: oklch(37% 0 0deg);
-    --color-gray-900: oklch(33.4% 0 0deg);
-    --color-gray-930: oklch(31.6% 0 0deg);
-    --color-gray-950: oklch(29.8% 0 0deg);
-    --color-gray-970: oklch(28% 0 0deg);
-    --color-gray-990: oklch(26.2% 0 0deg);
-    --color-gray-995: oklch(24.4% 0 0deg);
+    --color-gray-900: oklch(33.6% 0.0045 260deg);
+    --color-gray-930: oklch(31.2% 0.0045 260deg);
+    --color-gray-950: oklch(28.8% 0.0045 260deg);
+    --color-gray-970: oklch(26.4% 0.0045 260deg);
+    --color-gray-990: oklch(24% 0.0045 260deg);
+    --color-gray-995: oklch(21.6% 0.0045 260deg);
 
     --color-black: oklch(0% 0 0deg);
 
@@ -71,6 +71,7 @@
     --color-ink: var(--color-gray-900);
     --color-ink-body: var(--color-gray-600);
     --color-ink-detail: var(--color-gray-400);
+    --color-ink-reverse: var(--color-white);
     --color-border: var(--color-gray-50);
     --color-subtle-1: var(--color-gray-10);
     --color-subtle-2: var(--color-gray-30);
@@ -81,6 +82,7 @@
       --color-bg: var(--color-gray-995);
       --color-ink: var(--color-gray-50);
       --color-ink-body: var(--color-gray-300);
+      --color-ink-reverse: var(--color-black);
       --color-ink-detail: var(--color-gray-500);
       --color-border: var(--color-gray-950);
       --color-subtle-1: var(--color-gray-990);
@@ -194,6 +196,15 @@
       background-color: var(--color-subtle-2);
       color: var(--color-ink);
     }
+
+    &.btn--icon--ink {
+      background-color: var(--color-ink);
+      color: var(--color-ink-reverse);
+
+      &:hover {
+        background-color: var(--color-ink-body);
+      }
+    }
   }
 
   .btn--block {
@@ -201,7 +212,7 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-xl);
 
     height: 2em;
     padding: 0em 0.5em;

@@ -8,7 +8,7 @@
   <body>
     <main class="flex w-full h-screen">
       <div
-        class="w-64 min-w-64 flex flex-col border-r border-default px-2 subtle-1"
+        class="w-58 min-w-58 flex flex-col border-r border-default px-2 subtle-1"
       >
         <div class="action-bar sticky top-0">
           <button class="btn--icon">{{ template "search.html" . }}</button>
@@ -18,7 +18,7 @@
           <button class="btn--icon">{{ template "plus.html" . }}</button>
         </div>
 
-        <div class="overflow-y-auto text-sm flex flex-col items-start mt-2">
+        <div class="overflow-y-auto text-xs flex flex-col items-start mt-2">
           {{ range .Boards }}
           <div
             class="flex gap-1.5 items-center p-2 text-ink-body hover-text-ink hover-subtle-2 rounded-lg w-full"
@@ -33,7 +33,7 @@
             <button class="btn text-[1.325em]">
               {{ template "avatar.html" "A" }}
             </button>
-            <span class="ml-1.5 text-sm">Andrei</span>
+            <span class="ml-1.5 text-xs">Andrei</span>
           </div>
           <button class="ml-auto btn--icon text-base">
             {{ template "cog.html" . }}
@@ -48,7 +48,7 @@
         <div class="sticky top-0 z-10 px-6">
           <!-- Added bg-white for visibility when scrolling -->
           <div class="action-bar">
-            <div class="text-xs">Syncwave Core</div>
+            <div class="text-xs font-medium">Syncwave Core</div>
             <button class="ml-auto btn--icon">
               {{ template "search.html" . }}
             </button>
@@ -59,36 +59,36 @@
         <!-- Scrollable Tasks Container -->
         <div class="flex-1 overflow-auto mt-2">
           <!-- Changed to flex-1 -->
-          <div class="flex gap-6 text-sm pb-4 px-6">
+          <div class="flex gap-6 text-xs pb-4 px-6">
             <!-- Added padding-bottom -->
             <!-- Backlog Column -->
-            <div class="w-64 flex-shrink-0">
+            <div class="w-58 flex-shrink-0">
               <!-- Added flex-shrink-0 -->
-              <div class="mb-2 text-ink-body text-xs">Backlog</div>
+              <div class="mb-2 text-ink-body text-2xs">Backlog</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 8 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
               </div>
             </div>
             <!-- In Progress Column -->
-            <div class="w-64 flex-shrink-0">
-              <div class="mb-2 text-ink-body text-xs">In Progress</div>
+            <div class="w-58 flex-shrink-0">
+              <div class="mb-2 text-ink-body text-2xs">In Progress</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 4 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
               </div>
             </div>
             <!-- Review Column -->
-            <div class="w-64 flex-shrink-0">
-              <div class="mb-2 text-ink-body text-xs">Review</div>
+            <div class="w-58 flex-shrink-0">
+              <div class="mb-2 text-ink-body text-2xs">Review</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 8 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
               </div>
             </div>
             <!-- Done Column -->
-            <div class="w-64 flex-shrink-0">
-              <div class="mb-2 text-ink-body text-xs">Done</div>
+            <div class="w-58 flex-shrink-0">
+              <div class="mb-2 text-ink-body text-2xs">Done</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 6 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
@@ -98,10 +98,10 @@
         </div>
       </div>
 
-      <!-- New Task sidebar -->
+      <!-- New Task Sidebar -->
       <div class="w-124 min-w-124 flex flex-col border-l border-default z-10">
-        <div class="action-bar sticky top-0 px-2">
-          <div class="text-xs">SYNC-1</div>
+        <div class="action-bar sticky top-0 px-4">
+          <div class="text-xs font-medium">SYNC-1</div>
           <button class="ml-auto btn--icon">
             {{ template "ellipsis.html" . }}
           </button>
@@ -110,25 +110,87 @@
         <div class="overflow-y-auto py-2 px-4">
           <div class="flex flex-col gap-1">
             <textarea
-              class="rounded-lg text-sm min-h-[100px]"
+              class="rounded-lg text-xs"
+              rows="5"
               placeholder="Write here..."
             ></textarea>
           </div>
         </div>
-        <hr class="my-2" />
         <div class="flex gap-2 px-2">
           <div class="btn--block">
             {{ template "circle-dashed.html" . }}
-            <span class="ml-1.5 text-sm">In Progress</span>
+            <span class="ml-1.5 text-xs">In Progress</span>
           </div>
           <div class="btn--block">
             <span class="text-[1.325em]">
               {{ template "avatar.html" "A" }}
             </span>
-            <span class="ml-1.5 text-sm">Andrei Bardziukou</span>
+            <span class="ml-1.5 text-xs">Andrei Andreev</span>
           </div>
         </div>
         <hr class="my-2" />
+        <!-- Messages Section -->
+        <div class="flex flex-col flex-grow">
+          <div class="flex-grow px-4 py-2">
+            <div class="flex justify-center items-center mb-4">
+              <div
+                class="subtle-1 px-2 py-1 rounded-xl text-ink-detail text-3xs"
+              >
+                Created Feb 23, 2023
+              </div>
+            </div>
+            {{ range seq 6 }}
+            <div class="flex gap-1.5 mb-4">
+              <div class="text-[1.325em]">{{ template "avatar.html" "A" }}</div>
+              <div class="w-full">
+                <div class="flex items-baseline gap-1.5">
+                  <div class="text-3xs font-medium">Andrei</div>
+                  <div class="text-4xs text-ink-detail">2h ago</div>
+                </div>
+                <div class="text-xs">Assigned to me, starting now.</div>
+              </div>
+            </div>
+            {{ end }}
+          </div>
+          <!-- Fixed Message Input -->
+          <div class="px-4 pt-2 pb-3">
+            <div class="flex subtle-2 border border-default rounded-lg p-1">
+              <button class="btn--icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="icon"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M18.97 3.659a2.25 2.25 0 0 0-3.182 0l-10.94 10.94a3.75 3.75 0 1 0 5.304 5.303l7.693-7.693a.75.75 0 0 1 1.06 1.06l-7.693 7.693a5.25 5.25 0 1 1-7.424-7.424l10.939-10.94a3.75 3.75 0 1 1 5.303 5.304L9.097 18.835l-.008.008-.007.007-.002.002-.003.002A2.25 2.25 0 0 1 5.91 15.66l7.81-7.81a.75.75 0 0 1 1.061 1.06l-7.81 7.81a.75.75 0 0 0 1.054 1.068L18.97 6.84a2.25 2.25 0 0 0 0-3.182Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <textarea
+                class="flex-grow rounded-lg text-xs p-1"
+                rows="1"
+                placeholder="Type a message..."
+              ></textarea>
+              <button class="btn--icon mt-auto">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm.53 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v5.69a.75.75 0 0 0 1.5 0v-5.69l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </body>
