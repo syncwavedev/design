@@ -133,23 +133,27 @@
         <div class="flex flex-col flex-grow">
           <div class="flex-grow px-4 py-2">
             <div class="flex justify-center items-center mb-4">
-              <div
-                class="subtle-1 px-2 py-1 rounded-xl text-ink-detail text-3xs"
-              >
-                Created Feb 23, 2023
+              <div class="subtle-1 px-2 py-0.5 rounded-xl text-3xs">
+                <span class="font-medium">Andrei</span>
+                <span class="text-ink-detail">created Feb 23, 2023</span>
               </div>
             </div>
             {{ range seq 6 }}
-            <div class="flex gap-1.5 mb-4">
-              <div class="text-[1.325em]">{{ template "avatar.html" "A" }}</div>
-              <div class="w-full">
+            <div class="flex flex-col mb-4">
+              <div class="flex gap-1.5 items-center">
+                <div class="text-[1.325em]">
+                  {{ template "avatar.html" "A" }}
+                </div>
                 <div class="flex items-baseline gap-1.5">
                   <div class="text-3xs font-medium">Andrei</div>
                   <div class="text-4xs text-ink-detail">2h ago</div>
                 </div>
-                <div class="text-xs">Assigned to me, starting now.</div>
+              </div>
+              <div class="text-xs ml-[calc(1.325em+0.5rem)]">
+                Assigned to me, starting now.
               </div>
             </div>
+
             {{ end }}
           </div>
           <!-- Fixed Message Input -->
