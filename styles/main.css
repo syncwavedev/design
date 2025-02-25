@@ -33,176 +33,96 @@
   --text-7xl--line-height: 1;
   --text-8xl--line-height: 1;
   --text-9xl--line-height: 0.95;
+
+  /* Gray */
+  --color-gray-10: oklch(98.2% 0.0029 126deg);
+  --color-gray-30: oklch(96.4% 0.0029 126deg);
+  --color-gray-50: oklch(94.6% 0.0029 126deg);
+  --color-gray-70: oklch(92.8% 0.0029 126deg);
+  --color-gray-100: oklch(91% 0 0deg);
+  --color-gray-150: oklch(87.4% 0 0deg);
+  --color-gray-200: oklch(83.8% 0 0deg);
+  --color-gray-250: oklch(80.2% 0 0deg);
+  --color-gray-300: oklch(76.6% 0 0deg);
+  --color-gray-350: oklch(73% 0 0deg);
+  --color-gray-400: oklch(69.4% 0 0deg);
+  --color-gray-450: oklch(65.8% 0 0deg);
+  --color-gray-500: oklch(62.2% 0 0deg);
+  --color-gray-550: oklch(58.6% 0 0deg);
+  --color-gray-600: oklch(55% 0 0deg);
+  --color-gray-650: oklch(51.4% 0 0deg);
+  --color-gray-700: oklch(47.8% 0 0deg);
+  --color-gray-750: oklch(44.2% 0 0deg);
+  --color-gray-800: oklch(40.6% 0 0deg);
+  --color-gray-850: oklch(37% 0 0deg);
+  --color-gray-900: oklch(33.6% 0.0045 260deg);
+  --color-gray-930: oklch(31.2% 0.0045 260deg);
+  --color-gray-950: oklch(28.8% 0.0045 260deg);
+  --color-gray-970: oklch(26.4% 0.0045 260deg);
+  --color-gray-990: oklch(24% 0.0045 260deg);
+  --color-gray-995: oklch(21.6% 0.0045 260deg);
+
+  /* Semantics */
+  --color-background: var(--theme-color-background);
+  --color-ink: var(--theme-color-ink);
+  --color-ink-body: var(--theme-color-ink-body);
+  --color-ink-detail: var(--theme-color-ink-detail);
+  --color-ink-reverse: var(--theme-color-ink-reverse);
+  --color-border: var(--theme-color-border);
+  --color-subtle-1: var(--theme-color-subtle-1);
+  --color-subtle-2: var(--theme-color-subtle-2);
+  --color-subtle-3: var(--theme-color-subtle-3);
+  --color-subtle-4: var(--theme-color-subtle-4);
 }
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 @layer base {
-  :root {
-    --color-white: oklch(100% 0 0deg);
-    --color-gray-10: oklch(98.2% 0.0029 126deg);
-    --color-gray-30: oklch(96.4% 0.0029 126deg);
-    --color-gray-50: oklch(94.6% 0.0029 126deg);
-    --color-gray-70: oklch(92.8% 0.0029 126deg);
-    --color-gray-100: oklch(91% 0 0deg);
-    --color-gray-150: oklch(87.4% 0 0deg);
-    --color-gray-200: oklch(83.8% 0 0deg);
-    --color-gray-250: oklch(80.2% 0 0deg);
-    --color-gray-300: oklch(76.6% 0 0deg);
-    --color-gray-350: oklch(73% 0 0deg);
-    --color-gray-400: oklch(69.4% 0 0deg);
-    --color-gray-450: oklch(65.8% 0 0deg);
-    --color-gray-500: oklch(62.2% 0 0deg);
-    --color-gray-550: oklch(58.6% 0 0deg);
-    --color-gray-600: oklch(55% 0 0deg);
-    --color-gray-650: oklch(51.4% 0 0deg);
-    --color-gray-700: oklch(47.8% 0 0deg);
-    --color-gray-750: oklch(44.2% 0 0deg);
-    --color-gray-800: oklch(40.6% 0 0deg);
-    --color-gray-850: oklch(37% 0 0deg);
-    --color-gray-900: oklch(33.6% 0.0045 260deg);
-    --color-gray-930: oklch(31.2% 0.0045 260deg);
-    --color-gray-950: oklch(28.8% 0.0045 260deg);
-    --color-gray-970: oklch(26.4% 0.0045 260deg);
-    --color-gray-990: oklch(24% 0.0045 260deg);
-    --color-gray-995: oklch(21.6% 0.0045 260deg);
+  [data-theme="light"] {
+    --theme-color-background: var(--color-white);
+    --theme-color-ink: var(--color-gray-900);
+    --theme-color-ink-body: var(--color-gray-600);
+    --theme-color-ink-detail: var(--color-gray-400);
+    --theme-color-ink-reverse: var(--color-white);
+    --theme-color-border: var(--color-gray-50);
+    --theme-color-subtle-1: var(--color-gray-10);
+    --theme-color-subtle-2: var(--color-gray-30);
+    --theme-color-subtle-3: var(--color-gray-50);
+    --theme-color-subtle-4: var(--color-gray-70);
+  }
 
-    --color-black: oklch(0% 0 0deg);
-
-    --color-bg: var(--color-white);
-    --color-ink: var(--color-gray-900);
-    --color-ink-body: var(--color-gray-600);
-    --color-ink-detail: var(--color-gray-400);
-    --color-ink-reverse: var(--color-white);
-    --color-border: var(--color-gray-50);
-    --color-subtle-1: var(--color-gray-10);
-    --color-subtle-2: var(--color-gray-30);
-    --color-subtle-3: var(--color-gray-50);
-    --color-subtle-4: var(--color-gray-70);
-
-    @media (prefers-color-scheme: dark) {
-      --color-bg: var(--color-gray-995);
-      --color-ink: var(--color-gray-50);
-      --color-ink-body: var(--color-gray-300);
-      --color-ink-reverse: var(--color-black);
-      --color-ink-detail: var(--color-gray-500);
-      --color-border: var(--color-gray-950);
-      --color-subtle-1: var(--color-gray-990);
-      --color-subtle-2: var(--color-gray-970);
-      --color-subtle-3: var(--color-gray-950);
-      --color-subtle-4: var(--color-gray-930);
-    }
+  [data-theme="dark"] {
+    --theme-color-background: var(--color-gray-995);
+    --theme-color-ink: var(--color-gray-50);
+    --theme-color-ink-body: var(--color-gray-300);
+    --theme-color-ink-reverse: var(--color-black);
+    --theme-color-ink-detail: var(--color-gray-500);
+    --theme-color-border: var(--color-gray-950);
+    --theme-color-subtle-1: var(--color-gray-990);
+    --theme-color-subtle-2: var(--color-gray-970);
+    --theme-color-subtle-3: var(--color-gray-950);
+    --theme-color-subtle-4: var(--color-gray-930);
   }
 
   html,
   body {
-    background: var(--color-bg);
-    color: var(--color-ink);
-    font-size: 16px;
-    line-height: var(--text-base--line-height);
+    @apply bg-background text-ink antialiased;
   }
 
   hr {
-    color: var(--color-border);
+    @apply border-border;
   }
 }
 
 @layer utilities {
-  /* Text */
-  .text-ink {
-    color: var(--color-ink);
-  }
-
-  .hover-text-ink {
-    &:hover {
-      color: var(--color-ink);
-    }
-  }
-
-  .text-ink-detail {
-    color: var(--color-ink-detail);
-  }
-
-  .text-ink-body {
-    color: var(--color-ink-body);
-  }
-
-  .text-white {
-    color: var(--color-white);
-  }
-
-  /* Border */
-
-  .border-default {
-    border-color: var(--color-border);
-  }
-
-  /* Subtle */
-  .bg-default {
-    background-color: var(--color-bg);
-  }
-
-  .subtle-1 {
-    background-color: var(--color-subtle-1);
-  }
-
-  .subtle-2 {
-    background-color: var(--color-subtle-2);
-  }
-
-  .subtle-3 {
-    background-color: var(--color-subtle-3);
-  }
-
-  .subtle-4 {
-    background-color: var(--color-subtle-4);
-  }
-
-  .hover-subtle-1 {
-    &:hover {
-      background-color: var(--color-subtle-1);
-    }
-  }
-
-  .hover-subtle-2 {
-    &:hover {
-      background-color: var(--color-subtle-2);
-    }
-  }
-
-  .hover-subtle-3 {
-    &:hover {
-      background-color: var(--color-subtle-3);
-    }
-  }
-
-  .hover-subtle-4 {
-    &:hover {
-      background-color: var(--color-subtle-4);
-    }
-  }
-
-  /* Buttons */
-
   .btn--icon {
-    inline-size: 2em;
-    block-size: 2em;
-
-    color: var(--color-ink-body);
-    border-radius: 50%;
-    aspect-ratio: 1;
-    display: grid;
-    place-items: center;
-
-    &:hover {
-      background-color: var(--color-subtle-2);
-      color: var(--color-ink);
-    }
+    @apply w-[2em] h-[2em] text-ink-body rounded-full aspect-square grid place-items-center hover:bg-subtle-3 hover:text-ink;
 
     &.btn--icon--ink {
-      background-color: var(--color-ink);
-      color: var(--color-ink-reverse);
+      @apply bg-gray-450 hover:bg-gray-550 text-ink-reverse;
 
-      &:hover {
-        background-color: var(--color-ink-body);
+      &.active {
+        @apply bg-ink;
       }
     }
   }

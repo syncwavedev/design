@@ -4,11 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/public/main.css" rel="stylesheet" />
+    <script>
+      let currentTheme = "light";
+
+      function setTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        currentTheme = theme;
+      }
+
+      function toggleTheme() {
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        setTheme(newTheme);
+        localStorage.setItem("theme", newTheme);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Check for browser preference
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+
+        // Use saved theme if exists, otherwise use browser preference
+        const savedTheme =
+          localStorage.getItem("theme") || (prefersDark ? "dark" : "light");
+        setTheme(savedTheme);
+
+        // Listen for browser theme changes
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", (e) => {
+            if (!localStorage.getItem("theme")) {
+              setTheme(e.matches ? "dark" : "light");
+            }
+          });
+      });
+    </script>
   </head>
   <body>
     <main class="flex w-full h-screen">
       <div
-        class="w-58 min-w-58 flex flex-col border-r border-default px-2 subtle-1"
+        class="w-58 min-w-58 flex flex-col border-r border-border px-2 bg-subtle-1"
       >
         <div class="action-bar sticky top-0">
           <button class="btn--icon">{{ template "search.html" . }}</button>
@@ -21,7 +56,7 @@
         <div class="overflow-y-auto text-xs flex flex-col items-start mt-2">
           {{ range .Boards }}
           <div
-            class="flex gap-1.5 items-center p-2 text-ink-body hover-text-ink hover-subtle-2 rounded-lg w-full"
+            class="flex gap-1.5 items-center p-2 text-ink-body hover:text-ink hover:bg-subtle-2 rounded-lg w-full"
           >
             {{ template "hashtag.html" . }}
             <span class="truncate leading-snug"> {{.Name}} </span>
@@ -48,7 +83,7 @@
         <div class="sticky top-0 z-10 px-6">
           <!-- Added bg-white for visibility when scrolling -->
           <div class="action-bar">
-            <div class="text-xs font-medium">Syncwave Core</div>
+            <div class="text-xs font-semibold">Syncwave Core</div>
             <button class="ml-auto btn--icon">
               {{ template "search.html" . }}
             </button>
@@ -99,9 +134,9 @@
       </div>
 
       <!-- New Task Sidebar -->
-      <div class="w-124 min-w-124 flex flex-col border-l border-default z-10">
+      <div class="w-124 min-w-124 flex flex-col border-l border-border z-10">
         <div class="action-bar sticky top-0 px-4">
-          <div class="text-xs font-medium">SYNC-1</div>
+          <div class="text-xs font-semibold">SYNC-1</div>
           <button class="ml-auto btn--icon">
             {{ template "ellipsis.html" . }}
           </button>
@@ -133,8 +168,8 @@
         <div class="flex flex-col flex-grow">
           <div class="flex-grow px-4 py-2">
             <div class="flex justify-center items-center mb-4">
-              <div class="subtle-1 px-2 py-0.5 rounded-xl text-3xs">
-                <span class="font-medium">Andrei</span>
+              <div class="bg-subtle-1 px-2 py-0.5 rounded-xl text-3xs">
+                <span class="font-semibold">Andrei</span>
                 <span class="text-ink-detail">created Feb 23, 2023</span>
               </div>
             </div>
@@ -145,7 +180,7 @@
                   {{ template "avatar.html" "A" }}
                 </div>
                 <div class="flex items-baseline gap-1.5">
-                  <div class="text-3xs font-medium">Andrei</div>
+                  <div class="text-3xs font-semibold">Andrei</div>
                   <div class="text-4xs text-ink-detail">2h ago</div>
                 </div>
               </div>
@@ -158,7 +193,7 @@
           </div>
           <!-- Fixed Message Input -->
           <div class="px-4 pt-2 pb-3">
-            <div class="flex subtle-2 border border-default rounded-lg p-1">
+            <div class="flex bg-subtle-2 border border-border rounded-lg p-1">
               <button class="btn--icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -178,19 +213,8 @@
                 rows="1"
                 placeholder="Type a message..."
               ></textarea>
-              <button class="btn--icon mt-auto">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="size-6"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm.53 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v5.69a.75.75 0 0 0 1.5 0v-5.69l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
+              <button class="btn--icon btn--icon--ink mt-auto">
+                {{ template "arrow-up.html" }}
               </button>
             </div>
           </div>
