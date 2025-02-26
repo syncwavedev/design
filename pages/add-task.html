@@ -42,40 +42,6 @@
   </head>
   <body>
     <main class="flex w-full h-screen">
-      <div
-        class="w-58 min-w-58 flex flex-col border-r border-border px-2 bg-subtle-1"
-      >
-        <div class="action-bar sticky top-0">
-          <button class="btn--icon">{{ template "search.html" . }}</button>
-          <button class="ml-auto btn--icon">
-            {{ template "panel-right.html" . }}
-          </button>
-          <button class="btn--icon">{{ template "plus.html" . }}</button>
-        </div>
-
-        <div class="overflow-y-auto text-xs flex flex-col items-start mt-2">
-          {{ range .Boards }}
-          <div
-            class="flex gap-1.5 items-center p-2 text-ink-body hover:text-ink hover:bg-subtle-2 rounded-lg w-full"
-          >
-            {{ template "hashtag.html" . }}
-            <span class="truncate leading-snug"> {{.Name}} </span>
-          </div>
-          {{ end }}
-        </div>
-        <div class="action-bar mt-auto mb-2">
-          <div class="btn--block">
-            <button class="btn text-[1.325em]">
-              {{ template "avatar.html" "A" }}
-            </button>
-            <span class="ml-1.5 text-xs">Andrei</span>
-          </div>
-          <button class="ml-auto btn--icon text-base">
-            {{ template "cog.html" . }}
-          </button>
-        </div>
-      </div>
-
       <!-- Board -->
       <div class="grow flex flex-col min-w-0">
         <!-- Added min-w-0 to prevent overflow -->

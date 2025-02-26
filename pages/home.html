@@ -4,11 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/public/main.css" rel="stylesheet" />
+    <script>
+      let currentTheme = "light";
+
+      function setTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        currentTheme = theme;
+      }
+
+      function toggleTheme() {
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        setTheme(newTheme);
+        localStorage.setItem("theme", newTheme);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Check for browser preference
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+
+        // Use saved theme if exists, otherwise use browser preference
+        const savedTheme =
+          localStorage.getItem("theme") || (prefersDark ? "dark" : "light");
+        setTheme(savedTheme);
+
+        // Listen for browser theme changes
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", (e) => {
+            if (!localStorage.getItem("theme")) {
+              setTheme(e.matches ? "dark" : "light");
+            }
+          });
+      });
+    </script>
   </head>
   <body>
     <main class="flex w-full h-screen">
       <div
-        class="w-58 min-w-58 flex flex-col border-r border-default px-2 subtle-1"
+        class="w-58 min-w-58 flex flex-col border-r border-border px-2 bg-subtle-1"
       >
         <div class="action-bar sticky top-0">
           <button class="btn--icon">{{ template "search.html" . }}</button>
@@ -21,7 +56,7 @@
         <div class="overflow-y-auto text-xs flex flex-col items-start mt-2">
           {{ range .Boards }}
           <div
-            class="flex gap-1.5 items-center p-2 text-ink-body hover-text-ink hover-subtle-2 rounded-lg w-full"
+            class="flex gap-1.5 items-center p-2 text-ink-body hover:text-ink hover:bg-subtle-2 rounded-lg w-full"
           >
             {{ template "hashtag.html" . }}
             <span class="truncate leading-snug"> {{.Name}} </span>
@@ -48,7 +83,7 @@
         <div class="sticky top-0 z-10 px-6">
           <!-- Added bg-white for visibility when scrolling -->
           <div class="action-bar">
-            <div class="text-xs font-medium">Syncwave Core</div>
+            <div class="text-xs font-semibold">Syncwave Core</div>
             <button class="ml-auto btn--icon">
               {{ template "search.html" . }}
             </button>
@@ -98,5 +133,18 @@
         </div>
       </div>
     </main>
+    <div
+      class="fixed top-0 left-0 w-screen h-screen bg-black/20 backdrop-blur-xs flex justify-center items-center z-[1000]"
+    >
+      <div class="bg-subtle-1 py-2 rounded-lg w-164">
+        <div class="flex items-center px-4 pb-2">
+          <span class="font-semibold text-xs">Add board</span>
+          <button class="btn--icon ml-auto">
+            {{ template "times.html" . }}
+          </button>
+        </div>
+        <hr />
+      </div>
+    </div>
   </body>
 </html>
