@@ -136,26 +136,23 @@
     <div
       class="fixed top-0 left-0 w-screen h-screen bg-black/20 backdrop-blur-xs flex justify-center items-center z-[1000]"
     >
-      <div class="bg-subtle-1 rounded-lg w-164">
+      <div class="bg-subtle-1 rounded-3xl w-124">
         <div class="flex items-center px-4 my-2 h-[2.5em]">
-          <input
-            class="h-[2em] rounded-xl w-full text-sm"
-            placeholder="Add members by email..."
-          />
+          <input class="input text-xs" placeholder="Enter email..." />
           <button class="btn--icon ml-auto">
             {{ template "times.html" . }}
           </button>
         </div>
         <hr />
         <div class="flex flex-col m-2">
-          <div class="p-2 flex items-center text-sm bg-subtle-3 rounded-lg">
+          <div class="p-2 flex items-center text-xs bg-subtle-3 rounded-2xl">
             <button class="btn text-[2.2em]">
               {{ template "avatar.html" "S" }}
             </button>
             <span class="ml-1.5">Sarah Chen</span>
           </div>
           {{ range seq 4 }}
-          <div class="p-2 flex items-center text-sm">
+          <div class="p-2 flex items-center text-xs">
             <button class="btn text-[2.2em]">
               {{ template "avatar.html" "S" }}
             </button>
@@ -164,8 +161,8 @@
           {{ end }}
         </div>
         <hr />
-        <button class="btn--icon btn--icon--ink active mx-auto text-xl my-4">
-          {{ template "checkmark.html"}}
+        <button class="btn--block ml-auto mx-4 my-2">
+          <span class="text-xs">Done</span>
         </button>
       </div>
     </div>
