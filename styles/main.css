@@ -67,6 +67,7 @@
   --color-ink: var(--theme-color-ink);
   --color-ink-body: var(--theme-color-ink-body);
   --color-ink-detail: var(--theme-color-ink-detail);
+  --color-ink-placeholder: var(--theme-color-ink-placeholder);
   --color-ink-reverse: var(--theme-color-ink-reverse);
   --color-border: var(--theme-color-border);
   --color-subtle-1: var(--theme-color-subtle-1);
@@ -82,7 +83,8 @@
     --theme-color-background: var(--color-white);
     --theme-color-ink: var(--color-gray-900);
     --theme-color-ink-body: var(--color-gray-600);
-    --theme-color-ink-detail: var(--color-gray-400);
+    --theme-color-ink-detail: var(--color-gray-450);
+    --theme-color-ink-placeholder: var(--color-gray-350);
     --theme-color-ink-reverse: var(--color-white);
     --theme-color-border: var(--color-gray-50);
     --theme-color-subtle-1: var(--color-gray-10);
@@ -96,7 +98,8 @@
     --theme-color-ink: var(--color-gray-50);
     --theme-color-ink-body: var(--color-gray-300);
     --theme-color-ink-reverse: var(--color-black);
-    --theme-color-ink-detail: var(--color-gray-500);
+    --theme-color-ink-detail: var(--color-gray-450);
+    --theme-color-ink-placeholder: var(--color-gray-650);
     --theme-color-border: var(--color-gray-950);
     --theme-color-subtle-1: var(--color-gray-990);
     --theme-color-subtle-2: var(--color-gray-970);
@@ -112,11 +115,23 @@
   hr {
     @apply border-border;
   }
+
+  textarea {
+    resize: none;
+  }
 }
 
 @layer utilities {
+  .input {
+    @apply flex-grow w-full bg-transparent placeholder:text-ink-placeholder focus-visible:outline-none;
+  }
+
+  .input--bordered {
+    @apply border border-border rounded-md h-[2rem] px-2;
+  }
+
   .btn--icon {
-    @apply w-[2em] h-[2em] text-ink-body rounded-full aspect-square grid place-items-center hover:bg-subtle-3 hover:text-ink;
+    @apply w-[2em] h-[2em] text-ink-body rounded-full aspect-square grid place-items-center hover:bg-subtle-3 hover:text-ink cursor-pointer;
 
     &.btn--icon--ink {
       @apply bg-gray-450 hover:bg-gray-550 text-ink-reverse;
@@ -132,12 +147,13 @@
     align-items: center;
     justify-content: center;
 
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-3xl);
 
     height: 2em;
     padding: 0em 0.5em;
 
     color: var(--color-ink-body);
+    cursor: pointer;
 
     &:hover {
       background-color: var(--color-subtle-2);
