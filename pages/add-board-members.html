@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/public/main.css" rel="stylesheet" />
+    <script>
+      let currentTheme = "light";
+
+      function setTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        currentTheme = theme;
+      }
+
+      function toggleTheme() {
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        setTheme(newTheme);
+        localStorage.setItem("theme", newTheme);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Check for browser preference
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+
+        // Use saved theme if exists, otherwise use browser preference
+        const savedTheme =
+          localStorage.getItem("theme") || (prefersDark ? "dark" : "light");
+        setTheme(savedTheme);
+
+        // Listen for browser theme changes
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", (e) => {
+            if (!localStorage.getItem("theme")) {
+              setTheme(e.matches ? "dark" : "light");
+            }
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <main class="flex w-full h-screen">
+      <div
+        class="w-58 min-w-58 flex flex-col border-r border-border px-2 bg-subtle-1"
+      >
+        <div class="action-bar sticky top-0">
+          <button class="btn--icon">{{ template "search.html" . }}</button>
+          <button class="ml-auto btn--icon">
+            {{ template "panel-right.html" . }}
+          </button>
+          <button class="btn--icon">{{ template "plus.html" . }}</button>
+        </div>
+
+        <div class="overflow-y-auto text-xs flex flex-col items-start mt-2">
+          {{ range .Boards }}
+          <div
+            class="flex gap-1.5 items-center p-2 text-ink-body hover:text-ink hover:bg-subtle-2 rounded-lg w-full"
+          >
+            {{ template "hashtag.html" . }}
+            <span class="truncate leading-snug"> {{.Name}} </span>
+          </div>
+          {{ end }}
+        </div>
+        <div class="action-bar mt-auto mb-2">
+          <div class="btn--block">
+            <button class="btn text-[1.325em]">
+              {{ template "avatar.html" "A" }}
+            </button>
+            <span class="ml-1.5 text-xs">Andrei</span>
+          </div>
+          <button class="ml-auto btn--icon text-base">
+            {{ template "cog.html" . }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Board -->
+      <div class="grow flex flex-col min-w-0">
+        <!-- Added min-w-0 to prevent overflow -->
+        <!-- Fixed Header -->
+        <div class="sticky top-0 z-10 px-6">
+          <!-- Added bg-white for visibility when scrolling -->
+          <div class="action-bar">
+            <div class="text-xs font-semibold">Syncwave Core</div>
+            <button class="ml-auto btn--icon">
+              {{ template "search.html" . }}
+            </button>
+            <button class="btn--icon">{{ template "plus.html" . }}</button>
+          </div>
+        </div>
+
+        <!-- Scrollable Tasks Container -->
+        <div class="flex-1 overflow-auto mt-2">
+          <!-- Changed to flex-1 -->
+          <div class="flex gap-6 text-xs pb-4 px-6">
+            <!-- Added padding-bottom -->
+            <!-- Backlog Column -->
+            <div class="w-58 flex-shrink-0">
+              <!-- Added flex-shrink-0 -->
+              <div class="mb-2 text-ink-body text-2xs">Backlog</div>
+              <div class="flex flex-col gap-2">
+                {{ range seq 8 }} {{ template "boards/task-tile.html" . }} {{
+                end }}
+              </div>
+            </div>
+            <!-- In Progress Column -->
+            <div class="w-58 flex-shrink-0">
+              <div class="mb-2 text-ink-body text-2xs">In Progress</div>
+              <div class="flex flex-col gap-2">
+                {{ range seq 4 }} {{ template "boards/task-tile.html" . }} {{
+                end }}
+              </div>
+            </div>
+            <!-- Review Column -->
+            <div class="w-58 flex-shrink-0">
+              <div class="mb-2 text-ink-body text-2xs">Review</div>
+              <div class="flex flex-col gap-2">
+                {{ range seq 8 }} {{ template "boards/task-tile.html" . }} {{
+                end }}
+              </div>
+            </div>
+            <!-- Done Column -->
+            <div class="w-58 flex-shrink-0">
+              <div class="mb-2 text-ink-body text-2xs">Done</div>
+              <div class="flex flex-col gap-2">
+                {{ range seq 6 }} {{ template "boards/task-tile.html" . }} {{
+                end }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div
+      class="fixed top-0 left-0 w-screen h-screen bg-black/20 backdrop-blur-xs flex justify-center items-center z-[1000]"
+    >
+      <div class="bg-subtle-1 rounded-lg w-164">
+        <div class="flex items-center px-4 my-2 h-[2.5em]">
+          <input
+            class="h-[2em] rounded-xl w-full text-sm"
+            placeholder="Add members by email..."
+          />
+          <button class="btn--icon ml-auto">
+            {{ template "times.html" . }}
+          </button>
+        </div>
+        <hr />
+        <div class="flex flex-col m-2">
+          <div class="p-2 flex items-center text-sm bg-subtle-3 rounded-lg">
+            <button class="btn text-[2.2em]">
+              {{ template "avatar.html" "S" }}
+            </button>
+            <span class="ml-1.5">Sarah Chen</span>
+          </div>
+          {{ range seq 4 }}
+          <div class="p-2 flex items-center text-sm">
+            <button class="btn text-[2.2em]">
+              {{ template "avatar.html" "S" }}
+            </button>
+            <span class="ml-1.5">Sarah Chen</span>
+          </div>
+          {{ end }}
+        </div>
+        <hr />
+        <button class="btn--icon btn--icon--ink active mx-auto text-xl my-4">
+          {{ template "checkmark.html"}}
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
