@@ -109,7 +109,7 @@
 
   html,
   body {
-    @apply bg-background text-ink antialiased;
+    @apply bg-background text-ink antialiased font-sans;
   }
 
   hr {

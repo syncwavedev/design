@@ -138,25 +138,23 @@
     >
       <div class="bg-subtle-1 rounded-3xl w-124">
         <div class="flex items-center px-4 my-2 h-[2.5em]">
-          <input class="input text-xs" placeholder="Enter email..." />
+          <input
+            class="input text-xs"
+            placeholder="Enter email to add member..."
+          />
           <button class="btn--icon ml-auto">
             {{ template "times.html" . }}
           </button>
         </div>
         <hr />
         <div class="flex flex-col m-2">
-          <div class="p-2 flex items-center text-xs bg-subtle-3 rounded-2xl">
-            <button class="btn text-[2.2em]">
-              {{ template "avatar.html" "S" }}
-            </button>
-            <span class="ml-1.5">Sarah Chen</span>
-          </div>
           {{ range seq 4 }}
           <div class="p-2 flex items-center text-xs">
             <button class="btn text-[2.2em]">
-              {{ template "avatar.html" "S" }}
+              {{ template "avatar.html" "A" }}
             </button>
-            <span class="ml-1.5">Sarah Chen</span>
+            <span class="ml-1.5">andrei@syncwave.dev</span>
+            <span class="ml-1.5 text-ink-detail">invited</span>
           </div>
           {{ end }}
         </div>
