@@ -137,7 +137,7 @@
       class="fixed top-0 left-0 w-screen h-screen bg-black/20 backdrop-blur-xs flex justify-center items-center z-[1000]"
     >
       <div class="bg-subtle-1 rounded-3xl w-124">
-        <div class="flex items-center px-3 my-2 h-[2.5em]">
+        <div class="flex items-center px-4 my-2 h-[2.5em]">
           <button class="btn--icon">{{ template "arrow-left.html" . }}</button>
           <input
             class="ml-1.5 input text-xs"
@@ -145,14 +145,14 @@
           />
         </div>
         <hr />
-        <div class="flex flex-col my-2 mx-1">
+        <div class="flex flex-col my-2 mx-2">
           {{ range seq 4 }}
-          <div class="p-2 flex items-center text-xs">
-            <button class="btn text-[2.2em]">
+          <div class="p-2 flex items-center">
+            <button class="btn text-[2em]">
               {{ template "avatar.html" "A" }}
             </button>
-            <span class="ml-1.5">andrei@syncwave.dev</span>
-            <span class="ml-1.5 text-ink-detail">invited</span>
+            <span class="ml-1.5 text-xs">andrei@syncwave.dev</span>
+            <span class="ml-1.5 text-ink-detail text-xs">invited</span>
             <button class="btn--icon ml-auto">
               {{ template "times.html" . }}
             </button>
@@ -160,7 +160,7 @@
           {{ end }}
         </div>
         <hr />
-        <button class="btn--block ml-auto mx-3 my-2">
+        <button class="btn--block ml-auto mx-4 my-2">
           <span class="text-xs">Done</span>
         </button>
       </div>

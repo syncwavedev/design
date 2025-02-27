@@ -576,8 +576,14 @@
   .mx-1 {
     margin-inline: calc(var(--spacing) * 1);
   }
+  .mx-2 {
+    margin-inline: calc(var(--spacing) * 2);
+  }
   .mx-3 {
     margin-inline: calc(var(--spacing) * 3);
+  }
+  .mx-4 {
+    margin-inline: calc(var(--spacing) * 4);
   }
   .mx-6 {
     margin-inline: calc(var(--spacing) * 6);
@@ -788,6 +794,9 @@
   .px-3 {
     padding-inline: calc(var(--spacing) * 3);
   }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
   }
@@ -828,14 +837,26 @@
   .text-\[0\.45em\] {
     font-size: 0.45em;
   }
+  .text-\[1\.5em\] {
+    font-size: 1.5em;
+  }
+  .text-\[1\.6em\] {
+    font-size: 1.6em;
+  }
   .text-\[1\.25rem\] {
     font-size: 1.25rem;
   }
   .text-\[1\.325em\] {
     font-size: 1.325em;
   }
+  .text-\[1em\] {
+    font-size: 1em;
+  }
   .text-\[2\.2em\] {
     font-size: 2.2em;
+  }
+  .text-\[2em\] {
+    font-size: 2em;
   }
   .leading-relaxed {
     --tw-leading: var(--leading-relaxed);
