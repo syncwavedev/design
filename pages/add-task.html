@@ -42,7 +42,7 @@
   </head>
   <body>
     <main class="flex w-full h-screen">
-      <div
+      <!-- <div
         class="w-58 min-w-58 flex flex-col border-r border-divider px-2 bg-subtle-1"
       >
         <div class="flex items-center sticky top-0 py-1 mb-1">
@@ -74,7 +74,7 @@
             {{ template "cog.html" . }}
           </button>
         </div>
-      </div>
+      </div> -->
 
       <!-- Board -->
       <div class="grow flex flex-col min-w-0">
@@ -134,24 +134,22 @@
       </div>
 
       <!-- New Task Sidebar -->
-      <div class="w-136 min-w-124 flex flex-col border-l border-divider z-10">
-        <div class="flex items-center sticky top-0 mx-3 mt-1 mb-2">
+      <div class="w-152 min-w-124 flex flex-col border-l border-divider z-10">
+        <div class="flex items-center sticky top-0 mt-1 mb-2 mx-6">
           <div class="text-xs font-semibold">SYNC-1</div>
           <button class="ml-auto btn--icon">
             {{ template "ellipsis.html" . }}
           </button>
           <button class="btn--icon">{{ template "times.html" . }}</button>
         </div>
-        <div class="overflow-y-auto px-3">
-          <div class="flex flex-col gap-1">
-            <textarea
-              class="input text-xs leading-relaxed"
-              rows="5"
-              placeholder="Write here..."
-            ></textarea>
-          </div>
+        <div class="overflow-y-auto mx-6">
+          <textarea
+            class="input text-xs leading-relaxed"
+            rows="5"
+            placeholder="Write here..."
+          ></textarea>
         </div>
-        <div class="flex gap-2 px-2 my-2">
+        <div class="flex gap-2 my-2 mx-6">
           <div class="btn--block">
             {{ template "circle-dashed.html" . }}
             <span class="ml-1.5 text-xs">In Progress</span>
@@ -165,8 +163,8 @@
         </div>
         <hr class="my-2" />
         <!-- Messages Section -->
-        <div class="flex flex-col flex-grow">
-          <div class="flex-grow px-3 py-2">
+        <div class="flex flex-col flex-grow mx-6">
+          <div class="flex-grow py-2">
             <div class="flex justify-center items-center mb-4">
               <div class="bg-subtle-1 px-2 py-0.5 rounded-xl text-3xs">
                 <span class="font-semibold">Andrei</span>
@@ -193,7 +191,7 @@
           </div>
           <!-- Fixed Message Input -->
           <div
-            class="flex items-center gap-1 px-3 py-2 border-t border-divider"
+            class="flex items-center gap-1 border border-divider rounded-md bg-subtle-2 p-1 mb-2"
           >
             <button class="btn--icon">{{ template "attach.html" }}</button>
             <textarea
