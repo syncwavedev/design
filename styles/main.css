@@ -72,6 +72,7 @@
   --color-ink-reverse: var(--theme-color-ink-reverse);
 
   --color-divider: var(--theme-color-divider);
+  --color-divider-layout: var(--theme-color-divider-layout);
 
   --color-subtle-1: var(--theme-color-subtle-1);
   --color-subtle-2: var(--theme-color-subtle-2);
@@ -92,6 +93,7 @@
     --theme-color-ink-reverse: var(--color-white);
 
     --theme-color-divider: var(--color-gray-50);
+    --theme-color-divider-layout: var(--color-gray-150);
 
     --theme-color-subtle-1: var(--color-gray-10);
     --theme-color-subtle-2: var(--color-gray-30);
@@ -109,6 +111,7 @@
     --theme-color-ink-placeholder: var(--color-gray-650);
 
     --theme-color-divider: var(--color-gray-950);
+    --theme-color-divider-layout: var(--color-gray-900);
 
     --theme-color-subtle-1: var(--color-gray-990);
     --theme-color-subtle-2: var(--color-gray-970);
