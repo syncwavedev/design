@@ -1,7 +1,14 @@
-<div class="flex flex-col gap-1 p-2 bg-subtle-2 hover:bg-subtle-3 rounded-xl">
-  <span class="truncate text-ink">My new task here that just works</span>
-  <div class="flex gap-0.5 justify-between items-center">
-    <span class="text-2xs text-ink-detail">GRND–123</span>
-    <span class="text-[1.25rem]"> {{ template "avatar.html" "D" }} </span>
+<div
+  class="flex gap-1 p-2 bg-subtle-2 border border-transparent hover:border-divider-object hover:bg-subtle-3 rounded-lg cursor-pointer items-end"
+>
+  <div class="flex flex-col gap-1 truncate">
+    <span class="truncate text-ink">My new task here that just works</span>
+    <div class="flex gap-0.5 justify-between items-center">
+      <span class="text-2xs text-ink-detail">GRND–123</span>
+    </div>
+  </div>
+  <div>
+    <!-- <span class="text-[1.325rem]"> {{ template "avatar.html" "D" }} </span> -->
+    <button class="btn--icon btn-sm">{{template "user.html" }}</button>
   </div>
 </div>
