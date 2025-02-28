@@ -42,7 +42,7 @@
   </head>
   <body>
     <main class="flex w-full h-screen">
-      <!-- <div
+      <div
         class="w-58 min-w-58 flex flex-col border-r border-divider px-2 bg-subtle-1"
       >
         <div class="flex items-center sticky top-0 py-1 mb-1">
@@ -74,14 +74,12 @@
             {{ template "cog.html" . }}
           </button>
         </div>
-      </div> -->
+      </div>
 
       <!-- Board -->
       <div class="grow flex flex-col min-w-0">
-        <!-- Added min-w-0 to prevent overflow -->
         <!-- Fixed Header -->
-        <div class="sticky top-0 z-10 px-6">
-          <!-- Added bg-white for visibility when scrolling -->
+        <div class="sticky top-0 z-10 px-4 bg-background">
           <div class="flex items-center mt-1 mb-2">
             <div class="text-xs font-semibold">Syncwave Core</div>
             <button class="ml-auto btn--icon">
@@ -92,13 +90,10 @@
         </div>
 
         <!-- Scrollable Tasks Container -->
-        <div class="flex-1 overflow-auto">
-          <!-- Changed to flex-1 -->
-          <div class="flex gap-6 text-xs pb-4 px-6">
-            <!-- Added padding-bottom -->
+        <div class="flex-1 overflow-auto px-4 pb-4">
+          <div class="flex gap-4 text-xs">
             <!-- Backlog Column -->
             <div class="w-58 flex-shrink-0">
-              <!-- Added flex-shrink-0 -->
               <div class="mb-2 text-ink-body text-2xs">Backlog</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 8 }} {{ template "boards/task-tile.html" . }} {{
@@ -133,38 +128,42 @@
         </div>
       </div>
 
-      <!-- New Task Sidebar -->
-      <div class="w-152 min-w-124 flex flex-col border-l border-divider z-10">
-        <div class="flex items-center sticky top-0 mt-1 mb-2 mx-6">
-          <div class="text-xs font-semibold">SYNC-1</div>
-          <button class="ml-auto btn--icon">
-            {{ template "ellipsis.html" . }}
-          </button>
-          <button class="btn--icon">{{ template "times.html" . }}</button>
-        </div>
-        <div class="overflow-y-auto mx-6">
+      <div
+        class="w-124 min-w-84 flex flex-col border-l border-divider bg-background z-10 flex-shrink-0"
+      >
+        <!-- Scrollable Content Section -->
+        <div class="flex-grow overflow-y-auto px-4">
+          <!-- Header -->
+          <div
+            class="flex items-center sticky top-0 mt-1 mb-2 bg-background z-20"
+          >
+            <div class="text-xs font-semibold">SYNC-1</div>
+            <button class="ml-auto btn--icon">
+              {{ template "ellipsis.html" . }}
+            </button>
+            <button class="btn--icon">{{ template "times.html" . }}</button>
+          </div>
+          <!-- Task Description -->
           <textarea
-            class="input text-xs leading-relaxed"
+            class="input text-xs leading-relaxed mb-1 w-full"
             rows="5"
             placeholder="Write here..."
           ></textarea>
-        </div>
-        <div class="flex gap-2 my-2 mx-6">
-          <div class="btn--block">
-            {{ template "circle-dashed.html" . }}
-            <span class="ml-1.5 text-xs">In Progress</span>
+          <!-- Task Actions -->
+          <div class="flex gap-1">
+            <div class="btn--block">
+              {{ template "circle-dashed.html" . }}
+              <span class="ml-1.5 text-xs">In Progress</span>
+            </div>
+            <div class="btn--block">
+              <span> {{ template "avatar.html" "A" }} </span>
+              <span class="ml-1.5 text-xs">Andrei Andreev</span>
+            </div>
           </div>
-          <div class="btn--block">
-            <span class="text-[1.325em]">
-              {{ template "avatar.html" "A" }}
-            </span>
-            <span class="ml-1.5 text-xs">Andrei Andreev</span>
-          </div>
-        </div>
-        <hr class="my-2" />
-        <!-- Messages Section -->
-        <div class="flex flex-col flex-grow mx-6">
-          <div class="flex-grow py-2">
+          <!-- Full-Width Horizontal Rule -->
+          <hr class="mt-2 mb-4 -mx-4" />
+          <!-- Messages Section -->
+          <div class="">
             <div class="flex justify-center items-center mb-4">
               <div class="bg-subtle-1 px-2 py-0.5 rounded-xl text-3xs">
                 <span class="font-semibold">Andrei</span>
@@ -182,27 +181,28 @@
                   <div class="text-4xs text-ink-detail">2h ago</div>
                 </div>
               </div>
-              <div class="text-xs ml-[calc(1.325em+0.5rem)]">
+              <div class="text-xs ml-[calc(1.325em+0.5rem)] leading-relaxed">
                 Assigned to me, starting now.
               </div>
             </div>
-
             {{ end }}
           </div>
-          <!-- Fixed Message Input -->
-          <div
-            class="flex items-center gap-1 border border-divider rounded-md bg-subtle-2 p-1 mb-2"
-          >
-            <button class="btn--icon">{{ template "attach.html" }}</button>
-            <textarea
-              class="input text-xs"
-              rows="1"
-              placeholder="Type a message..."
-            ></textarea>
-            <button class="btn--icon btn--icon--ink mt-auto">
-              {{ template "arrow-up.html" }}
-            </button>
-          </div>
+        </div>
+        <!-- Fixed Message Input -->
+        <div
+          class="flex items-center gap-1 border-t border-divider px-2 py-1.5 bg-background z-10"
+        >
+          <button class="btn--icon mt-auto">
+            {{ template "attach.html" }}
+          </button>
+          <textarea
+            class="input text-xs flex-grow leading-relaxed"
+            rows="1"
+            placeholder="Type a message..."
+          ></textarea>
+          <button class="btn--icon btn--icon--ink mt-auto">
+            {{ template "arrow-up.html" }}
+          </button>
         </div>
       </div>
     </main>
