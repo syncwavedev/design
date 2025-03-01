@@ -96,7 +96,7 @@
           <div class="flex gap-4 text-xs">
             <!-- Backlog Column -->
             <div class="w-58 flex-shrink-0">
-              <div class="mb-2 text-ink-body text-2xs">Backlog</div>
+              <div class="mb-2 text-3xs uppercase">Backlog</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 11 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
@@ -104,7 +104,7 @@
             </div>
             <!-- In Design Column -->
             <div class="w-58 flex-shrink-0">
-              <div class="mb-2 text-ink-body text-2xs">In Design</div>
+              <div class="mb-2 text-3xs uppercase">In Design</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 4 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
@@ -112,7 +112,7 @@
             </div>
             <!-- Ready for dev -->
             <div class="w-58 flex-shrink-0">
-              <div class="mb-2 text-ink-body text-2xs">Ready for Dev</div>
+              <div class="mb-2 text-3xs uppercase">Ready for Dev</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 8 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
@@ -120,7 +120,7 @@
             </div>
             <!-- In Progress Column -->
             <div class="w-58 flex-shrink-0">
-              <div class="mb-2 text-ink-body text-2xs">In Progress</div>
+              <div class="mb-2 text-3xs uppercase">In Progress</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 4 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
@@ -128,7 +128,7 @@
             </div>
             <!-- Review Column -->
             <div class="w-58 flex-shrink-0">
-              <div class="mb-2 text-ink-body text-2xs">Review</div>
+              <div class="mb-2 text-3xs uppercase">Review</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 8 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
@@ -136,7 +136,7 @@
             </div>
             <!-- Done Column -->
             <div class="w-58 flex-shrink-0">
-              <div class="mb-2 text-ink-body text-2xs">Done</div>
+              <div class="mb-2 text-3xs uppercase">Done</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 6 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
@@ -153,7 +153,7 @@
         <div class="flex-grow overflow-y-auto px-4">
           <!-- Header -->
           <div
-            class="flex items-center sticky top-0 my-2 bg-subtle-0 dark:bg-subtle-1 z-20"
+            class="flex items-center sticky top-0 py-2 bg-subtle-0 dark:bg-subtle-1 z-20"
           >
             <div class="text-xs font-semibold">SYNC-1</div>
             <button class="ml-auto btn--icon">
@@ -166,7 +166,9 @@
             class="input text-xs leading-relaxed mb-1 w-full"
             rows="5"
             placeholder="Write here..."
-          ></textarea>
+          >
+Telling all students they are champions, regardless of performance, may seem kind — until you consider how quickly reality will shatter this illusion after graduation. Reality, unlike well-meaning school policies, does have public grades and rankings — whether in sports, business, science, or technology. AI benchmarks that demonstrate DeepSeek's superiority are one of such public rankings. And more are coming. Unless the US secondary education system undergoes radical reform, China’s growing dominance in technology seems inevitable
+          </textarea>
           <!-- Task Actions -->
           <div class="flex gap-1">
             <div class="btn--block">
@@ -181,48 +183,51 @@
           <!-- Full-Width Horizontal Rule -->
           <hr class="mt-2 mb-4 -mx-4" />
           <!-- Messages Section -->
-          <div class="">
-            <div class="flex justify-center items-center mb-4">
-              <div
-                class="bg-subtle-1 dark:bg-subtle-2 px-2 py-0.5 rounded-xl text-3xs"
-              >
-                <span class="font-semibold">Andrei</span>
-                <span class="text-ink-detail">created Feb 23, 2023</span>
-              </div>
+          <div class="flex justify-center items-center mb-2">
+            <div
+              class="bg-subtle-1 dark:bg-subtle-2 px-2 py-0.5 rounded-xl text-3xs"
+            >
+              <span class="font-semibold">Andrei</span>
+              <span class="text-ink-detail">created Feb 23, 2023</span>
             </div>
-            {{ range seq 6 }}
-            <div class="flex flex-col mb-4">
-              <div class="flex gap-1.5 items-center">
-                <div class="text-[1.325em]">
-                  {{ template "avatar.html" "A" }}
-                </div>
-                <div class="flex items-baseline gap-1.5">
-                  <div class="text-3xs font-semibold">Andrei</div>
-                  <div class="text-4xs text-ink-detail">2h ago</div>
-                </div>
-              </div>
-              <div class="text-xs ml-[calc(1.325em+0.5rem)] leading-relaxed">
-                Assigned to me, starting now.
-              </div>
-            </div>
-            {{ end }}
           </div>
+          {{ range seq 6 }}
+          <div
+            class="flex flex-col gap-1 -mx-2 p-2 hover:bg-subtle-1 dark:hover:bg-subtle-2 rounded-lg"
+          >
+            <div class="flex gap-1.5 items-center">
+              <div class="text-[1.125em]">{{ template "avatar.html" "A" }}</div>
+              <div class="flex items-baseline gap-1.5">
+                <div class="text-2xs font-semibold">Andrei</div>
+                <div class="text-4xs text-ink-detail">2h ago</div>
+              </div>
+            </div>
+            <div class="text-xs leading-relaxed">
+              MemHash proved there’s always room for a new app on Telegram —
+              provided you deeply understand which features made its
+              predecessors popular. The key is to borrow only what works while
+              innovating and differentiating elsewhere
+            </div>
+          </div>
+          {{ end }}
         </div>
         <!-- Fixed Message Input -->
-        <div
-          class="flex items-center gap-1 border-t border-divider p-2 bg-subtle-0 dark:bg-subtle-1 z-10"
-        >
-          <button class="btn--icon mt-auto">
-            {{ template "attach.html" }}
-          </button>
-          <textarea
-            class="input text-xs flex-grow leading-relaxed"
-            rows="1"
-            placeholder="Type a message..."
-          ></textarea>
-          <button class="btn--icon btn--icon--ink mt-auto">
-            {{ template "arrow-up.html" }}
-          </button>
+        <div class="my-2 mx-4 z-10 bg-subtle-0 dark:bg-subtle-1">
+          <div class="flex gap-2 items-end">
+            <div
+              class="flex items-end bg-subtle-1 dark:bg-subtle-2 border border-divider z-10 rounded-lg w-full"
+            >
+              <textarea
+                class="input text-xs w-full leading-relaxed px-2 py-1"
+                rows="1"
+                placeholder="Type a message..."
+              ></textarea>
+              <button class="btn--icon">{{ template "attach.html" }}</button>
+            </div>
+            <button class="btn--icon btn--icon--ink">
+              {{ template "arrow-up.html" }}
+            </button>
+          </div>
         </div>
       </div>
     </main>
