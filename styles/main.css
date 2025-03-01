@@ -162,7 +162,7 @@
   }
 
   .input--bordered {
-    @apply border border-divider rounded-md h-[2rem] px-2;
+    @apply border border-divider-object bg-subtle-1 rounded-md h-[2.6em] px-2;
   }
 
   .btn--icon {
