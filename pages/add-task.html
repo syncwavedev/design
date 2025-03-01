@@ -77,9 +77,9 @@
       </div> -->
 
       <!-- Board -->
-      <div class="grow flex flex-col min-w-0 bg-subtle-1">
+      <div class="grow flex flex-col min-w-0 bg-subtle-1 dark:bg-subtle-0">
         <!-- Fixed Header -->
-        <div class="sticky top-0 z-10 px-4 bg-subtle-1">
+        <div class="sticky top-0 z-10 px-4 bg-subtle-1 dark:bg-subtle-0">
           <div class="flex items-center my-2">
             <div class="text-xs font-semibold leading-none">Syncwave Core</div>
 
@@ -147,12 +147,14 @@
       </div>
 
       <div
-        class="w-112 min-w-84 flex flex-col border-l border-divider bg-background z-10 flex-shrink-0"
+        class="w-112 min-w-84 flex flex-col border-l border-divider bg-subtle-0 dark:bg-subtle-1 z-10 flex-shrink-0"
       >
         <!-- Scrollable Content Section -->
         <div class="flex-grow overflow-y-auto px-4">
           <!-- Header -->
-          <div class="flex items-center sticky top-0 my-2 bg-background z-20">
+          <div
+            class="flex items-center sticky top-0 my-2 bg-subtle-0 dark:bg-subtle-1 z-20"
+          >
             <div class="text-xs font-semibold">SYNC-1</div>
             <button class="ml-auto btn--icon">
               {{ template "ellipsis.html" . }}
@@ -181,7 +183,9 @@
           <!-- Messages Section -->
           <div class="">
             <div class="flex justify-center items-center mb-4">
-              <div class="bg-subtle-2 px-2 py-0.5 rounded-xl text-3xs">
+              <div
+                class="bg-subtle-1 dark:bg-subtle-2 px-2 py-0.5 rounded-xl text-3xs"
+              >
                 <span class="font-semibold">Andrei</span>
                 <span class="text-ink-detail">created Feb 23, 2023</span>
               </div>
@@ -206,7 +210,7 @@
         </div>
         <!-- Fixed Message Input -->
         <div
-          class="flex items-center gap-1 border-t border-divider p-2 bg-background z-10"
+          class="flex items-center gap-1 border-t border-divider p-2 bg-subtle-0 dark:bg-subtle-1 z-10"
         >
           <button class="btn--icon mt-auto">
             {{ template "attach.html" }}

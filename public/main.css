@@ -6,10 +6,10 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-gray-50: oklch(95% 0.0029 260deg);
-    --color-gray-300: oklch(75% 0.0014 260deg);
-    --color-gray-800: oklch(35% 0.0042 260deg);
-    --color-gray-900: oklch(27% 0.0044 260deg);
+    --color-gray-50: oklch(94% 0.0032 260deg);
+    --color-gray-300: oklch(75% 0.0038 260deg);
+    --color-gray-800: oklch(35% 0.0044 260deg);
+    --color-gray-900: oklch(27% 0.0045 260deg);
     --color-gray-950: oklch(23% 0.0045 260deg);
     --color-black: #000;
     --color-white: #fff;
@@ -45,21 +45,20 @@
     --text-2xs: 0.8125rem;
     --text-3xs--line-height: 1.5;
     --text-2xs--line-height: 1.5;
-    --color-sage-10: oklch(98% 0.0029 130deg);
-    --color-sage-30: oklch(97% 0.0029 130deg);
-    --color-sage-40: oklch(96% 0.0029 130deg);
-    --color-sage-50: oklch(95% 0.0029 130deg);
-    --color-sage-70: oklch(93% 0.0029 130deg);
-    --color-sage-350: oklch(71% 0.0017 130deg);
-    --color-sage-450: oklch(63% 0.0023 130deg);
-    --color-sage-600: oklch(51% 0.0032 130deg);
-    --color-sage-900: oklch(27% 0.0044 130deg);
-    --color-gray-450: oklch(63% 0.0023 260deg);
-    --color-gray-650: oklch(47% 0.0035 260deg);
-    --color-gray-850: oklch(31% 0.0043 260deg);
-    --color-gray-870: oklch(29% 0.0044 260deg);
+    --color-sage-10: oklch(98.5% 0.0029 130deg);
+    --color-sage-30: oklch(97% 0.003 130deg);
+    --color-sage-40: oklch(95.5% 0.0031 130deg);
+    --color-sage-50: oklch(94% 0.0032 130deg);
+    --color-sage-70: oklch(92.5% 0.0033 130deg);
+    --color-sage-350: oklch(71% 0.0039 130deg);
+    --color-sage-450: oklch(63% 0.0041 130deg);
+    --color-sage-600: oklch(51% 0.0043 130deg);
+    --color-sage-900: oklch(27% 0.0045 130deg);
+    --color-gray-450: oklch(63% 0.0041 260deg);
+    --color-gray-650: oklch(47% 0.0043 260deg);
+    --color-gray-850: oklch(31% 0.0045 260deg);
+    --color-gray-870: oklch(29% 0.0045 260deg);
     --color-gray-930: oklch(25% 0.0045 260deg);
-    --color-background: var(--theme-color-background);
     --color-ink: var(--theme-color-ink);
     --color-ink-body: var(--theme-color-ink-body);
     --color-ink-detail: var(--theme-color-ink-detail);
@@ -67,9 +66,9 @@
     --color-ink-reverse: var(--theme-color-ink-reverse);
     --color-divider: var(--theme-color-divider);
     --color-divider-object: var(--theme-color-divider-object);
+    --color-subtle-0: var(--theme-color-subtle-0);
     --color-subtle-1: var(--theme-color-subtle-1);
     --color-subtle-2: var(--theme-color-subtle-2);
-    --color-subtle-3: var(--theme-color-subtle-3);
   }
 }
 @layer base {
@@ -396,6 +395,9 @@
   .overflow-y-auto {
     overflow-y: auto;
   }
+  .rounded-2xl {
+    border-radius: var(--radius-2xl);
+  }
   .rounded-3xl {
     border-radius: var(--radius-3xl);
   }
@@ -420,6 +422,10 @@
     border-right-style: var(--tw-border-style);
     border-right-width: 1px;
   }
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
   .border-l {
     border-left-style: var(--tw-border-style);
     border-left-width: 1px;
@@ -437,11 +443,11 @@
   .bg-\[\#3F6B7E\] {
     background-color: #3F6B7E;
   }
-  .bg-background {
-    background-color: var(--color-background);
-  }
   .bg-black\/20 {
     background-color: color-mix(in oklab, var(--color-black) 20%, transparent);
+  }
+  .bg-subtle-0 {
+    background-color: var(--color-subtle-0);
   }
   .bg-subtle-1 {
     background-color: var(--color-subtle-1);
@@ -571,10 +577,24 @@
       }
     }
   }
+  .dark\:bg-subtle-0 {
+    &:where([data-theme=dark], [data-theme=dark] *) {
+      background-color: var(--color-subtle-0);
+    }
+  }
+  .dark\:bg-subtle-1 {
+    &:where([data-theme=dark], [data-theme=dark] *) {
+      background-color: var(--color-subtle-1);
+    }
+  }
+  .dark\:bg-subtle-2 {
+    &:where([data-theme=dark], [data-theme=dark] *) {
+      background-color: var(--color-subtle-2);
+    }
+  }
 }
 @layer base {
   [data-theme="light"] {
-    --theme-color-background: var(--color-white);
     --theme-color-ink: var(--color-sage-900);
     --theme-color-ink-body: var(--color-sage-600);
     --theme-color-ink-detail: var(--color-sage-450);
@@ -582,13 +602,13 @@
     --theme-color-ink-reverse: var(--color-white);
     --theme-color-divider: var(--color-sage-40);
     --theme-color-divider-object: var(--color-sage-70);
+    --theme-color-subtle-0: var(--color-white);
     --theme-color-subtle-1: var(--color-sage-10);
     --theme-color-subtle-2: var(--color-sage-30);
     --theme-color-subtle-3: var(--color-sage-50);
     --theme-color-subtle-4: var(--color-sage-70);
   }
   [data-theme="dark"] {
-    --theme-color-background: var(--color-gray-950);
     --theme-color-ink: var(--color-gray-50);
     --theme-color-ink-body: var(--color-gray-300);
     --theme-color-ink-reverse: var(--color-black);
@@ -596,13 +616,13 @@
     --theme-color-ink-placeholder: var(--color-gray-650);
     --theme-color-divider: var(--color-gray-870);
     --theme-color-divider-object: var(--color-gray-800);
+    --theme-color-subtle-0: var(--color-gray-950);
     --theme-color-subtle-1: var(--color-gray-930);
     --theme-color-subtle-2: var(--color-gray-900);
     --theme-color-subtle-3: var(--color-gray-850);
     --theme-color-subtle-4: var(--color-gray-800);
   }
   html, body {
-    background-color: var(--color-background);
     font-family: var(--font-sans);
     color: var(--color-ink);
     -webkit-font-smoothing: antialiased;
@@ -647,7 +667,7 @@
     color: var(--color-ink-body);
     &:hover {
       @media (hover: hover) {
-        background-color: var(--color-subtle-3);
+        background-color: var(--color-subtle-2);
       }
     }
     &:hover {
@@ -680,7 +700,7 @@
     color: var(--color-ink-body);
     &:hover {
       @media (hover: hover) {
-        background-color: var(--color-subtle-3);
+        background-color: var(--color-subtle-2);
       }
     }
     &:hover {

@@ -136,7 +136,7 @@
     <div
       class="fixed top-0 left-0 w-screen h-screen bg-black/20 backdrop-blur-xs flex justify-center items-center z-[1000]"
     >
-      <div class="bg-subtle-1 rounded-3xl w-106">
+      <div class="bg-subtle-0 rounded-3xl w-106">
         <div class="flex items-center mx-4 my-2">
           <button class="btn--icon ml-auto">
             {{ template "times.html" . }}
@@ -175,47 +175,63 @@
           <span class="ml-auto text-xs text-ink-body">Manage</span>
         </div>
         <hr />
-        <div class="flex flex-col gap-2 p-4 bg-background">
-          <div class="flex items-center gap-2 px-2 py-1 bg-subtle-2 rounded-lg">
-            <span class="text-xs">Backlog</span>
-            <button class="btn--icon ml-auto">
-              {{ template "trash.html" }}
-            </button>
-          </div>
-          <div class="flex items-center gap-2 px-2 py-1 bg-subtle-2 rounded-lg">
-            <span class="text-xs">In Design</span>
-            <button class="btn--icon ml-auto">
-              {{ template "trash.html" }}
-            </button>
-          </div>
-          <div class="flex items-center gap-2 px-2 py-1 bg-subtle-2 rounded-lg">
-            <span class="text-xs">Ready for Dev</span>
-            <button class="btn--icon ml-auto">
-              {{ template "trash.html" }}
-            </button>
-          </div>
-          <div class="flex items-center gap-2 px-2 py-1 bg-subtle-2 rounded-lg">
-            <span class="text-xs">In Progress</span>
-            <button class="btn--icon ml-auto">
-              {{ template "trash.html" }}
-            </button>
-          </div>
-          <div class="flex items-center gap-2 px-2 py-1 bg-subtle-2 rounded-lg">
-            <span class="text-xs">Review</span>
-            <button class="btn--icon ml-auto">
-              {{ template "trash.html" }}
-            </button>
-          </div>
-          <div class="flex items-center gap-2 px-2 py-1 bg-subtle-2 rounded-lg">
-            <span class="text-xs">Done</span>
-            <button class="btn--icon ml-auto">
-              {{ template "trash.html" }}
-            </button>
-          </div>
-          <div
-            class="flex items-center gap-2 p-2 rounded-lg border border-dashed border-divider-object"
-          >
-            <input type="text" placeholder="New column" class="input text-xs" />
+        <div class="p-4">
+          <div class="flex flex-col bg-subtle-1 px-4 py-2 rounded-2xl">
+            <div
+              class="flex items-center gap-2 px-2 py-1 border-b border-divider"
+            >
+              <span class="text-xs">Backlog</span>
+              <button class="btn--icon ml-auto">
+                {{ template "trash.html" }}
+              </button>
+            </div>
+            <div
+              class="flex items-center gap-2 px-2 py-1 border-b border-divider"
+            >
+              <span class="text-xs">In Design</span>
+              <button class="btn--icon ml-auto">
+                {{ template "trash.html" }}
+              </button>
+            </div>
+            <div
+              class="flex items-center gap-2 px-2 py-1 border-b border-divider"
+            >
+              <span class="text-xs">Ready for Dev</span>
+              <button class="btn--icon ml-auto">
+                {{ template "trash.html" }}
+              </button>
+            </div>
+            <div
+              class="flex items-center gap-2 px-2 py-1 border-b border-divider"
+            >
+              <span class="text-xs">In Progress</span>
+              <button class="btn--icon ml-auto">
+                {{ template "trash.html" }}
+              </button>
+            </div>
+            <div
+              class="flex items-center gap-2 px-2 py-1 border-b border-divider"
+            >
+              <span class="text-xs">Review</span>
+              <button class="btn--icon ml-auto">
+                {{ template "trash.html" }}
+              </button>
+            </div>
+            <div
+              class="flex items-center gap-2 px-2 py-1 border-b border-divider"
+            >
+              <span class="text-xs">Done</span>
+              <button class="btn--icon ml-auto">
+                {{ template "trash.html" }}
+              </button>
+            </div>
+            <div class="flex items-center gap-2 p-2 border-divider-object">
+              <input
+                type="text"
+                placeholder="Add new column"
+                class="input text-xs"
+              />
+            </div>
           </div>
         </div>
         <hr />
