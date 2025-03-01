@@ -136,29 +136,31 @@
     <div
       class="fixed top-0 left-0 w-screen h-screen bg-black/20 backdrop-blur-xs flex justify-center items-center z-[1000]"
     >
-      <div class="bg-subtle-1 rounded-3xl w-124">
+      <div class="bg-subtle-1 rounded-3xl w-106">
         <div class="flex items-center mx-4 my-2">
           <button class="btn--icon ml-auto">
             {{ template "times.html" . }}
           </button>
         </div>
         <hr />
-        <div
-          class="grid grid-cols-[auto_1fr] gap-6 my-6 items-center max-w-xs mx-auto text-xs"
-        >
-          <label for="name" class="text-right text-ink-detail">Name</label>
+        <div class="flex items-center gap-2 mx-4">
+          <span class="text-ink-detail">{{ template "kanban.html" }}</span>
           <input
             type="text"
             id="name"
-            class="input"
-            placeholder="e.g. Syncwave Dev"
+            class="input my-4 text-xs"
+            placeholder="Name"
+            autofocus
           />
-          <label for="key" class="text-right text-ink-detail">Key</label>
+        </div>
+        <hr />
+        <div class="flex items-center gap-2 mx-4">
+          <span class="text-ink-detail">{{ template "key.html" }}</span>
           <input
             type="text"
             id="key"
-            class="input"
-            placeholder="e.g. SYNC-DEV"
+            class="input my-4 text-xs"
+            placeholder="Key"
           />
         </div>
         <hr />
