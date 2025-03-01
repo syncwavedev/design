@@ -430,10 +430,6 @@
     border-left-style: var(--tw-border-style);
     border-left-width: 1px;
   }
-  .border-dashed {
-    --tw-border-style: dashed;
-    border-style: dashed;
-  }
   .border-divider {
     border-color: var(--color-divider);
   }
@@ -451,9 +447,6 @@
   }
   .bg-subtle-1 {
     background-color: var(--color-subtle-1);
-  }
-  .bg-subtle-2 {
-    background-color: var(--color-subtle-2);
   }
   .bg-white {
     background-color: var(--color-white);
