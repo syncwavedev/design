@@ -136,31 +136,32 @@
     <div
       class="fixed top-0 left-0 w-screen h-screen bg-black/20 backdrop-blur-xs flex justify-center items-center z-[1000]"
     >
-      <div class="bg-subtle-1 rounded-3xl w-106">
+      <div class="bg-subtle-0 rounded-2xl w-106">
         <div class="flex items-center mx-4 my-2">
+          <span class="text-xs font-semibold">Add Board</span>
           <button class="btn--icon ml-auto">
             {{ template "times.html" . }}
           </button>
         </div>
         <hr />
-        <div class="flex items-center gap-2 mx-4">
-          <span class="text-ink-detail">{{ template "kanban.html" }}</span>
+        <div class="flex flex-col gap-1 mx-4 mt-4">
+          <label for="name" class="text-xs">Board Name</label>
           <input
             type="text"
             id="name"
-            class="input my-4 text-xs"
-            placeholder="Board Name"
-            autofocus
+            class="input input--bordered text-xs"
+            placeholder="Name"
+            value="Syncwave"
           />
         </div>
-        <hr />
-        <div class="flex items-center gap-2 mx-4">
-          <span class="text-ink-detail">{{ template "key.html" }}</span>
+        <div class="flex flex-col gap-1 mx-4 my-4">
+          <label for="key" class="text-xs"> Board Key </label>
           <input
             type="text"
-            id="key"
-            class="input my-4 text-xs"
-            placeholder="Board Key"
+            id="name"
+            class="input input--bordered text-xs"
+            placeholder="Name"
+            value="SYNC"
           />
         </div>
         <hr />
