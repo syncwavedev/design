@@ -1,11 +1,22 @@
 <div
-  class="flex gap-1 p-2 bg-subtle-0 dark:bg-subtle-1 border border-divider hover:border-divider-object hover:bg-subtle-2 rounded-lg cursor-pointer items-end group"
+  class="flex gap-1 p-2 bg-subtle-0 dark:bg-subtle-1 border border-transparent hover:border-divider-object hover:bg-subtle-2 rounded-md cursor-pointer items-end group"
 >
   <div class="flex w-full flex-col gap-1 truncate">
-    <span class="truncate text-ink">My new task here that just works</span>
-    <div class="flex gap-0.5 justify-between items-center">
-      <span class="text-2xs text-ink-detail">GRND–123</span>
-    </div>
+    <span class="text-2xs text-ink-detail">GRND–123</span>
+    <span class="truncate text-ink">
+      {{ $ver := randInt 10 }} {{if eq $ver 1}} My new task here that just works
+      sometimes it can be a bit longer. But it's okay. {{else if eq $ver 2}}
+      Debug authentication flow issues in production environment {{else if eq
+      $ver 3}} Update dependencies and fix security vulnerabilities {{else if eq
+      $ver 4}} Implement new user onboarding experience {{else if eq $ver 5}}
+      Optimize database queries for better performance {{else if eq $ver 6}}
+      Create automated test suite for payment processing {{else if eq $ver 7}}
+      Design and implement API versioning strategy {{else if eq $ver 8}} Add
+      logging and monitoring for critical services {{else if eq $ver 9}} Fix
+      responsive layout issues on mobile devices {{else}} Refactor legacy code
+      to follow modern practices {{end}}
+    </span>
+    <span class="text-2xs text-ink-detail">By Andrei on Thu</span>
   </div>
   <div class="">
     <!-- <span class="text-[1.325rem]"> {{ template "avatar.html" "D" }} </span> -->

@@ -34,6 +34,33 @@
   --text-8xl--line-height: 1;
   --text-9xl--line-height: 0.95;
 
+  /* Red */
+  --color-red-10: oklch(98.5% 0.12 25deg);
+  --color-red-30: oklch(97% 0.13 25deg);
+  --color-red-40: oklch(95.5% 0.14 25deg);
+  --color-red-50: oklch(94% 0.15 25deg);
+  --color-red-70: oklch(92.5% 0.16 25deg);
+  --color-red-100: oklch(91% 0.17 25deg);
+  --color-red-150: oklch(87% 0.18 25deg);
+  --color-red-200: oklch(83% 0.19 25deg);
+  --color-red-250: oklch(79% 0.2 25deg);
+  --color-red-300: oklch(75% 0.21 25deg);
+  --color-red-350: oklch(71% 0.22 25deg);
+  --color-red-400: oklch(67% 0.23 25deg);
+  --color-red-450: oklch(63% 0.24 25deg);
+  --color-red-500: oklch(59% 0.25 25deg);
+  --color-red-550: oklch(55% 0.25 25deg);
+  --color-red-600: oklch(51% 0.25 25deg);
+  --color-red-650: oklch(47% 0.25 25deg);
+  --color-red-700: oklch(43% 0.25 25deg);
+  --color-red-750: oklch(39% 0.25 25deg);
+  --color-red-800: oklch(35% 0.25 25deg);
+  --color-red-850: oklch(31% 0.25 25deg);
+  --color-red-870: oklch(29% 0.25 25deg);
+  --color-red-900: oklch(27% 0.25 25deg);
+  --color-red-930: oklch(25% 0.25 25deg);
+  --color-red-950: oklch(23% 0.25 25deg);
+
   /* Sage Gray */
   --color-sage-10: oklch(98.5% 0.0029 130deg);
   --color-sage-30: oklch(97% 0.003 130deg);
@@ -94,6 +121,7 @@
   --color-ink-detail: var(--theme-color-ink-detail);
   --color-ink-placeholder: var(--theme-color-ink-placeholder);
   --color-ink-reverse: var(--theme-color-ink-reverse);
+  --color-ink-danger: var(--theme-color-ink-danger);
 
   --color-divider: var(--theme-color-divider);
   --color-divider-object: var(--theme-color-divider-object);
@@ -103,6 +131,13 @@
   --color-subtle-2: var(--theme-color-subtle-2);
   --color-subtle-3: var(--theme-color-subtle-3);
   --color-subtle-4: var(--theme-color-subtle-4);
+
+  --color-ink-contrast: var(--theme-color-ink-contrast);
+  --color-ink-danger-contrast: var(--theme-color-ink-danger-contrast);
+  --color-subtle-contrast: var(--theme-color-subtle-contrast);
+  --color-object-contrast-highlight: var(
+    --theme-color-object-contrast-highlight
+  );
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -114,6 +149,7 @@
     --theme-color-ink-detail: var(--color-sage-450);
     --theme-color-ink-placeholder: var(--color-sage-350);
     --theme-color-ink-reverse: var(--color-white);
+    --theme-color-ink-danger: var(--color-red-450);
 
     --theme-color-divider: var(--color-sage-40);
     --theme-color-divider-object: var(--color-sage-70);
@@ -131,6 +167,7 @@
     --theme-color-ink-reverse: var(--color-black);
     --theme-color-ink-detail: var(--color-gray-450);
     --theme-color-ink-placeholder: var(--color-gray-650);
+    --theme-color-ink-danger: var(--color-red-350);
 
     --theme-color-divider: var(--color-gray-870);
     --theme-color-divider-object: var(--color-gray-800);
@@ -179,6 +216,10 @@
 
   .btn--block {
     @apply flex items-center justify-center rounded-2xl h-[2em] px-[0.5em] text-ink-body cursor-pointer hover:bg-subtle-2 hover:text-ink;
+
+    &.btn--block--danger {
+      @apply text-ink-danger;
+    }
   }
 
   /* Icons */

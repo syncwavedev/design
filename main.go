@@ -78,6 +78,7 @@ func pageHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.New("master").Funcs(template.FuncMap{
 		"seq":         seq,
 		"randomColor": randomColor,
+		"randInt":     randInt,
 	})
 
 	// Load all shared templates recursively.
@@ -149,6 +150,11 @@ func seq(n int) []int {
 		result[i] = i
 	}
 	return result
+}
+
+func randInt(max int) int {
+	rand.Seed(time.Now().UnixNano())
+	return rand.Intn(max)
 }
 
 func randomColor() string {

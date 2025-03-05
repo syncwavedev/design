@@ -19,17 +19,12 @@
       }
 
       document.addEventListener("DOMContentLoaded", () => {
-        // Check for browser preference
         const prefersDark = window.matchMedia(
           "(prefers-color-scheme: dark)",
         ).matches;
-
-        // Use saved theme if exists, otherwise use browser preference
         const savedTheme =
           localStorage.getItem("theme") || (prefersDark ? "dark" : "light");
         setTheme(savedTheme);
-
-        // Listen for browser theme changes
         window
           .matchMedia("(prefers-color-scheme: dark)")
           .addEventListener("change", (e) => {
@@ -42,47 +37,11 @@
   </head>
   <body>
     <main class="flex w-full h-screen">
-      <!-- <div
-        class="w-58 min-w-58 flex flex-col border-r border-divider px-2 bg-subtle-1"
-      >
-        <div class="flex items-center sticky top-0 py-2">
-          <button class="btn--icon">{{ template "search.html" . }}</button>
-          <button class="ml-auto btn--icon">
-            {{ template "panel-right.html" . }}
-          </button>
-          <button class="btn--icon">{{ template "plus.html" . }}</button>
-        </div>
-
-        <div class="overflow-y-auto text-xs flex flex-col items-start">
-          {{ range .Boards }}
-          <div
-            class="flex gap-1.5 items-center p-2 text-ink-body hover:text-ink hover:bg-subtle-2 rounded-lg w-full"
-          >
-            {{ template "hashtag.html" . }}
-            <span class="truncate leading-snug"> {{.Name}} </span>
-          </div>
-          {{ end }}
-        </div>
-        <div class="flex items-center mt-auto mb-2">
-          <div class="btn--block">
-            <button class="btn text-[1.325em]">
-              {{ template "avatar.html" "A" }}
-            </button>
-            <span class="ml-1.5 text-xs">Andrei</span>
-          </div>
-          <button class="ml-auto btn--icon text-base">
-            {{ template "cog.html" . }}
-          </button>
-        </div>
-      </div> -->
-
-      <!-- Board -->
       <div class="grow flex flex-col min-w-0 bg-subtle-1 dark:bg-subtle-0">
         <!-- Fixed Header -->
         <div class="sticky top-0 z-10 px-4 bg-subtle-1 dark:bg-subtle-0">
           <div class="flex items-center my-2">
             <div class="text-xs font-semibold leading-none">Syncwave Core</div>
-
             <button class="btn--icon ml-auto">
               {{ template "plus.html" . }}
             </button>
@@ -90,28 +49,27 @@
             <button class="btn--icon">{{ template "ellipsis.html" . }}</button>
           </div>
         </div>
-
         <!-- Scrollable Tasks Container -->
         <div class="flex-1 overflow-auto px-4 pb-4">
           <div class="flex gap-4 text-xs">
             <!-- Backlog Column -->
-            <div class="w-58 flex-shrink-0">
+            <div class="w-76 flex-shrink-0">
               <div class="mb-2 text-3xs uppercase">Backlog</div>
               <div class="flex flex-col gap-2">
-                {{ range seq 11 }} {{ template "boards/task-tile.html" . }} {{
+                {{ range seq 8 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
               </div>
             </div>
             <!-- In Design Column -->
-            <div class="w-58 flex-shrink-0">
+            <div class="w-76 flex-shrink-0">
               <div class="mb-2 text-3xs uppercase">In Design</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 4 }} {{ template "boards/task-tile.html" . }} {{
                 end }}
               </div>
             </div>
-            <!-- Ready for dev -->
-            <div class="w-58 flex-shrink-0">
+            <!-- Ready for Dev -->
+            <div class="w-76 flex-shrink-0">
               <div class="mb-2 text-3xs uppercase">Ready for Dev</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 8 }} {{ template "boards/task-tile.html" . }} {{
@@ -119,7 +77,7 @@
               </div>
             </div>
             <!-- In Progress Column -->
-            <div class="w-58 flex-shrink-0">
+            <div class="w-76 flex-shrink-0">
               <div class="mb-2 text-3xs uppercase">In Progress</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 4 }} {{ template "boards/task-tile.html" . }} {{
@@ -127,7 +85,7 @@
               </div>
             </div>
             <!-- Review Column -->
-            <div class="w-58 flex-shrink-0">
+            <div class="w-76 flex-shrink-0">
               <div class="mb-2 text-3xs uppercase">Review</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 8 }} {{ template "boards/task-tile.html" . }} {{
@@ -135,7 +93,7 @@
               </div>
             </div>
             <!-- Done Column -->
-            <div class="w-58 flex-shrink-0">
+            <div class="w-76 flex-shrink-0">
               <div class="mb-2 text-3xs uppercase">Done</div>
               <div class="flex flex-col gap-2">
                 {{ range seq 6 }} {{ template "boards/task-tile.html" . }} {{
@@ -145,30 +103,58 @@
           </div>
         </div>
       </div>
-
       <div
-        class="w-112 min-w-84 flex flex-col border-l border-divider bg-subtle-0 dark:bg-subtle-1 z-10 flex-shrink-0"
+        class="w-124 min-w-84 flex flex-col border-l border-divider bg-subtle-0 dark:bg-subtle-1 z-10 flex-shrink-0"
       >
         <!-- Scrollable Content Section -->
         <div class="flex-grow overflow-y-auto px-4">
-          <!-- Header -->
+          <!-- Header with Context Menu -->
           <div
             class="flex items-center sticky top-0 py-2 bg-subtle-0 dark:bg-subtle-1 z-20"
           >
             <div class="text-xs font-semibold">SYNC-1</div>
-            <button class="ml-auto btn--icon">
-              {{ template "ellipsis.html" . }}
-            </button>
+            <div class="relative ml-auto">
+              <button class="btn--icon" id="ellipsis-button">
+                {{ template "ellipsis.html" . }}
+              </button>
+              <div
+                id="context-menu"
+                class="absolute right-0 w-46 bg-subtle-2 border border-divider-object rounded-lg hidden p-1"
+              >
+                <ul>
+                  <li
+                    class="px-2 h-[1.8rem] flex items-center gap-1.5 hover:bg-subtle-3 cursor-pointer rounded-sm"
+                  >
+                    {{ template "link.html" . }}
+                    <span class="text-xs leading-none">Copy Link</span>
+                  </li>
+                  <li
+                    class="px-2 h-[1.8rem] flex items-center gap-1.5 hover:bg-subtle-3 cursor-pointer rounded-sm text-ink-danger"
+                  >
+                    {{ template "trash.html" . }}
+                    <span class="text-xs leading-none">Delete </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
             <button class="btn--icon">{{ template "times.html" . }}</button>
           </div>
           <!-- Task Description -->
-          <textarea
-            class="input text-xs leading-relaxed mb-1 w-full"
-            rows="5"
-            placeholder="Write here..."
-          >
-Telling all students they are champions, regardless of performance, may seem kind — until you consider how quickly reality will shatter this illusion after graduation. Reality, unlike well-meaning school policies, does have public grades and rankings — whether in sports, business, science, or technology. AI benchmarks that demonstrate DeepSeek's superiority are one of such public rankings. And more are coming. Unless the US secondary education system undergoes radical reform, China’s growing dominance in technology seems inevitable
-          </textarea>
+          <div class="input text-xs leading-relaxed w-full mb-2">
+            TSMC stands for Taiwan Semiconductor Manufacturing Company. They're
+            the world leader in advanced chip making, and key to the story of
+            how Apple was able to leapfrog the industry with the M-series chips
+            back in 2020. Apple has long been the top customer for TSMC, so
+            they've been able to reserve capacity on the latest manufacturing
+            processes (called "nodes"), and as a result had a solid lead over
+            everyone else for a while.
+            <br /><br />
+            But that lead is evaporating fast. That new Max+ 395 is showing that
+            AMD has nearly caught up in terms of raw grunt, and the efficiency
+            is no longer a million miles away either. This is again largely
+            because AMD has been able to benefit from the same TSMC-powered
+            progress that's also propelling Apple.
+          </div>
           <!-- Task Actions -->
           <div class="flex gap-1">
             <div class="btn--block">
@@ -193,7 +179,7 @@ Telling all students they are champions, regardless of performance, may seem kin
           </div>
           {{ range seq 6 }}
           <div
-            class="flex flex-col gap-1 -mx-2 p-2 hover:bg-subtle-1 dark:hover:bg-subtle-2 rounded-lg"
+            class="flex flex-col gap-1 -mx-2 p-2 hover:bg-subtle-2 dark:hover:bg-subtle-3 rounded-lg"
           >
             <div class="flex gap-1.5 items-center">
               <div class="text-[1.125em]">{{ template "avatar.html" "A" }}</div>
@@ -210,8 +196,51 @@ Telling all students they are champions, regardless of performance, may seem kin
             </div>
           </div>
           {{ end }}
+          <!-- Message with reply -->
+          <div
+            class="flex flex-col gap-1 -mx-2 p-2 hover:bg-subtle-2 dark:hover:bg-subtle-3 rounded-md"
+          >
+            <div
+              class="z-10 flex items-center p-1 hover:bg-subtle-0 dark:hover:bg-subtle-1 rounded-md cursor-pointer"
+            >
+              <span class="text-ink-detail leading-none mr-2"
+                >{{ template "arrow-uturn-right.html" .}}</span
+              >
+              <div class="text-[0.925em] mr-1.5">
+                {{ template "avatar.html" "D" }}
+              </div>
+              <div class="text-3xs font-semibold mr-2">Dmitry</div>
+              <span class="truncate text-3xs">
+                MemHash proved there's always room for a new app on Telegram
+              </span>
+            </div>
+            <div class="flex gap-1.5 items-center">
+              <div class="text-[1.125em]">{{ template "avatar.html" "A" }}</div>
+              <div class="flex items-baseline gap-1.5">
+                <div class="text-2xs font-semibold">Andrei</div>
+                <div class="text-4xs text-ink-detail">2h ago</div>
+              </div>
+            </div>
+            <div class="text-xs leading-relaxed">
+              MemHash proved there’s always room for a new app on Telegram —
+              provided you deeply understand which features made its
+              predecessors popular. The key is to borrow only what works while
+              innovating and differentiating elsewhere
+            </div>
+          </div>
         </div>
         <!-- Fixed Message Input -->
+        <div class="py-1 px-4 z-10 bg-subtle-2 dark:bg-subtle-3 flex gap-2">
+          <span class="text-ink-detail leading-none"
+            >{{ template "arrow-uturn-left.html" .}}</span
+          >
+          <p class="text-3xs text-ink-detail line-clamp-2">
+            MemHash proved there's always room for a new app on Telegram —
+            provided you deeply understand which features made its
+          </p>
+          <button class="btn--icon">{{ template "times.html" .}}</button>
+        </div>
+
         <div class="my-2 mx-4 z-10 bg-subtle-0 dark:bg-subtle-1">
           <div class="flex gap-2 items-end">
             <div
@@ -231,5 +260,32 @@ Telling all students they are champions, regardless of performance, may seem kin
         </div>
       </div>
     </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const ellipsisButton = document.getElementById("ellipsis-button");
+        const contextMenu = document.getElementById("context-menu");
+
+        ellipsisButton.addEventListener("click", (event) => {
+          event.stopPropagation();
+          contextMenu.classList.toggle("hidden");
+        });
+
+        contextMenu.addEventListener("click", (event) => {
+          if (event.target.tagName === "LI") {
+            contextMenu.classList.add("hidden");
+            console.log(`Selected: ${event.target.textContent}`);
+          }
+        });
+
+        document.addEventListener("click", (event) => {
+          if (
+            !contextMenu.contains(event.target) &&
+            event.target !== ellipsisButton
+          ) {
+            contextMenu.classList.add("hidden");
+          }
+        });
+      });
+    </script>
   </body>
 </html>

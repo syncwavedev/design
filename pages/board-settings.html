@@ -227,7 +227,7 @@
       </div>
     </main>
     <div
-      class="fixed top-0 left-0 w-screen h-screen bg-black/20 backdrop-blur-xs flex justify-center items-center z-[1000]"
+      class="fixed top-0 left-0 w-screen h-screen bg-black/20 dark:bg-white/2 backdrop-blur-sm flex justify-center items-center z-[1000]"
     >
       <div class="bg-subtle-0 rounded-2xl w-106 bg-subtle-0">
         <div class="flex items-center my-2 mx-4">
@@ -375,7 +375,8 @@
           </div>
         </div> -->
         <hr />
-        <button class="btn--block mx-auto my-2">
+
+        <button class="btn--block btn--block--danger mx-auto mx-4 my-2">
           {{ template "trash.html"}}
           <span class="ml-1.5 text-xs">Delete Syncwave</span>
         </button>
