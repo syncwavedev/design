@@ -39,9 +39,11 @@
     <main class="flex w-full h-screen">
       <div class="grow flex flex-col min-w-0 bg-subtle-1 dark:bg-subtle-0">
         <!-- Fixed Header -->
-        <div class="sticky top-0 z-10 px-4 bg-subtle-1 dark:bg-subtle-0">
-          <div class="flex items-center my-2">
-            <div class="text-xs font-semibold leading-none">Syncwave Core</div>
+        <div
+          class="sticky top-0 z-10 px-4 bg-subtle-1 dark:bg-subtle-0 border-b border-divider"
+        >
+          <div class="flex items-center my-1">
+            <div class="text-xs leading-none">Syncwave Core</div>
             <button class="btn--icon ml-auto">
               {{ template "plus.html" . }}
             </button>
@@ -50,7 +52,7 @@
           </div>
         </div>
         <!-- Scrollable Tasks Container -->
-        <div class="flex-1 overflow-auto px-4 pb-4">
+        <div class="flex-1 overflow-auto px-4 pb-4 mt-4">
           <div class="flex gap-4 text-xs">
             <!-- Backlog Column -->
             <div class="w-76 flex-shrink-0">
@@ -107,12 +109,12 @@
         class="w-124 min-w-84 flex flex-col border-l border-divider bg-subtle-0 dark:bg-subtle-1 z-10 flex-shrink-0"
       >
         <!-- Scrollable Content Section -->
-        <div class="flex-grow overflow-y-auto px-4">
+        <div class="flex-grow overflow-y-auto">
           <!-- Header with Context Menu -->
           <div
-            class="flex items-center sticky top-0 py-2 bg-subtle-0 dark:bg-subtle-1 z-20"
+            class="flex items-center sticky top-0 py-1 bg-subtle-0 dark:bg-subtle-1 z-20 border-b border-divider px-4"
           >
-            <div class="text-xs font-semibold">SYNC-1</div>
+            <div class="text-xs">SYNC-1</div>
             <div class="relative ml-auto">
               <button class="btn--icon" id="ellipsis-button">
                 {{ template "ellipsis.html" . }}
@@ -139,102 +141,116 @@
             </div>
             <button class="btn--icon">{{ template "times.html" . }}</button>
           </div>
-          <!-- Task Description -->
-          <div class="input text-xs leading-relaxed w-full mb-2">
-            TSMC stands for Taiwan Semiconductor Manufacturing Company. They're
-            the world leader in advanced chip making, and key to the story of
-            how Apple was able to leapfrog the industry with the M-series chips
-            back in 2020. Apple has long been the top customer for TSMC, so
-            they've been able to reserve capacity on the latest manufacturing
-            processes (called "nodes"), and as a result had a solid lead over
-            everyone else for a while.
-            <br /><br />
-            But that lead is evaporating fast. That new Max+ 395 is showing that
-            AMD has nearly caught up in terms of raw grunt, and the efficiency
-            is no longer a million miles away either. This is again largely
-            because AMD has been able to benefit from the same TSMC-powered
-            progress that's also propelling Apple.
-          </div>
-          <!-- Task Actions -->
-          <div class="flex gap-1">
-            <div class="btn--block">
-              {{ template "circle-dashed.html" . }}
-              <span class="ml-1.5 text-xs">In Progress</span>
+          <div class="mx-4 mt-4">
+            <!-- Task Description -->
+            <div class="input text-xs leading-relaxed w-full mb-2">
+              TSMC stands for Taiwan Semiconductor Manufacturing Company.
+              They're the world leader in advanced chip making, and key to the
+              story of how Apple was able to leapfrog the industry with the
+              M-series chips back in 2020. Apple has long been the top customer
+              for TSMC, so they've been able to reserve capacity on the latest
+              manufacturing processes (called "nodes"), and as a result had a
+              solid lead over everyone else for a while.
+              <br /><br />
+              But that lead is evaporating fast. That new Max+ 395 is showing
+              that AMD has nearly caught up in terms of raw grunt, and the
+              efficiency is no longer a million miles away either. This is again
+              largely because AMD has been able to benefit from the same
+              TSMC-powered progress that's also propelling Apple.
             </div>
-            <div class="btn--block">
-              <span> {{ template "avatar.html" "A" }} </span>
-              <span class="ml-1.5 text-xs">Andrei Andreev</span>
-            </div>
-          </div>
-          <!-- Full-Width Horizontal Rule -->
-          <hr class="mt-2 mb-4 -mx-4" />
-          <!-- Messages Section -->
-          <div class="flex justify-center items-center mb-2">
-            <div
-              class="bg-subtle-1 dark:bg-subtle-2 px-2 py-0.5 rounded-xl text-3xs"
-            >
-              <span class="font-semibold">Andrei</span>
-              <span class="text-ink-detail">created Feb 23, 2023</span>
-            </div>
-          </div>
-          {{ range seq 6 }}
-          <div
-            class="flex flex-col gap-1 -mx-2 p-2 hover:bg-subtle-2 dark:hover:bg-subtle-3 rounded-lg"
-          >
-            <div class="flex gap-1.5 items-center">
-              <div class="text-[1.125em]">{{ template "avatar.html" "A" }}</div>
-              <div class="flex items-baseline gap-1.5">
-                <div class="text-2xs font-semibold">Andrei</div>
-                <div class="text-4xs text-ink-detail">2h ago</div>
+            <hr class="mt-4 mb-4 -mx-4" />
+            <!-- Task Actions -->
+            <div class="grid grid-cols-[min-content_1fr] gap-x-6 gap-y-4">
+              <div class="text-ink-detail flex gap-2 items-center">
+                {{ template "circle-dashed.html" . }}
+                <span class="text-xs leading-none">Status</span>
+              </div>
+              <div class="input text-xs">
+                <span class="">In Progress</span>
+              </div>
+              <div class="text-ink-detail flex gap-2 items-center">
+                {{ template "user.html" . }}
+                <span class="text-xs leading-none">Assignee</span>
+              </div>
+              <div class="flex items-center">
+                <span> {{ template "avatar.html" "A" }} </span>
+                <span class="ml-1.5 text-xs">Andrei Andreev</span>
               </div>
             </div>
-            <div class="text-xs leading-relaxed">
-              MemHash proved there’s always room for a new app on Telegram —
-              provided you deeply understand which features made its
-              predecessors popular. The key is to borrow only what works while
-              innovating and differentiating elsewhere
-            </div>
-          </div>
-          {{ end }}
-          <!-- Message with reply -->
-          <div
-            class="flex flex-col gap-1 -mx-2 p-2 hover:bg-subtle-2 dark:hover:bg-subtle-3 rounded-md"
-          >
-            <div
-              class="z-10 flex items-center p-1 hover:bg-subtle-0 dark:hover:bg-subtle-1 rounded-md cursor-pointer"
-            >
-              <span class="text-ink-detail leading-none mr-2"
-                >{{ template "arrow-uturn-right.html" .}}</span
+            <!-- Full-Width Horizontal Rule -->
+            <hr class="mb-4 mt-4 -mx-4" />
+            <!-- Messages Section -->
+            <div class="flex justify-center items-center mb-2">
+              <div
+                class="bg-subtle-1 dark:bg-subtle-2 px-2 py-0.5 rounded-xl text-3xs"
               >
-              <div class="text-[0.925em] mr-1.5">
-                {{ template "avatar.html" "D" }}
-              </div>
-              <div class="text-3xs font-semibold mr-2">Dmitry</div>
-              <span class="truncate text-3xs">
-                MemHash proved there's always room for a new app on Telegram
-              </span>
-            </div>
-            <div class="flex gap-1.5 items-center">
-              <div class="text-[1.125em]">{{ template "avatar.html" "A" }}</div>
-              <div class="flex items-baseline gap-1.5">
-                <div class="text-2xs font-semibold">Andrei</div>
-                <div class="text-4xs text-ink-detail">2h ago</div>
+                <span class="font-semibold">Andrei</span>
+                <span class="text-ink-detail">created Feb 23, 2023</span>
               </div>
             </div>
-            <div class="text-xs leading-relaxed">
-              MemHash proved there’s always room for a new app on Telegram —
-              provided you deeply understand which features made its
-              predecessors popular. The key is to borrow only what works while
-              innovating and differentiating elsewhere
+            {{ range seq 6 }}
+            <div
+              class="flex flex-col gap-1 -mx-2 p-2 hover:bg-subtle-2 rounded-md"
+            >
+              <div class="flex gap-1.5 items-center">
+                <div class="text-[1.125em]">
+                  {{ template "avatar.html" "A" }}
+                </div>
+                <div class="flex items-baseline gap-1.5">
+                  <div class="text-2xs font-semibold">Andrei</div>
+                  <div class="text-4xs text-ink-detail">2h ago</div>
+                </div>
+              </div>
+              <div class="text-xs leading-relaxed">
+                MemHash proved there’s always room for a new app on Telegram —
+                provided you deeply understand which features made its
+                predecessors popular. The key is to borrow only what works while
+                innovating and differentiating elsewhere
+              </div>
+            </div>
+            {{ end }}
+            <!-- Message with reply -->
+            <div
+              class="flex flex-col gap-1 -mx-2 p-2 hover:bg-subtle-2 rounded-md"
+            >
+              <div
+                class="z-10 flex items-center p-1 hover:bg-subtle-0 dark:hover:bg-subtle-1 rounded-md cursor-pointer"
+              >
+                <span class="text-ink-detail leading-none mr-2"
+                  >{{ template "arrow-uturn-right.html" .}}</span
+                >
+                <div class="text-[0.925em] mr-1.5">
+                  {{ template "avatar.html" "D" }}
+                </div>
+                <div class="text-3xs font-semibold mr-2">Dmitry</div>
+                <span class="truncate text-3xs">
+                  MemHash proved there's always room for a new app on Telegram
+                </span>
+              </div>
+              <div class="flex gap-1.5 items-center">
+                <div class="text-[1.125em]">
+                  {{ template "avatar.html" "A" }}
+                </div>
+                <div class="flex items-baseline gap-1.5">
+                  <div class="text-2xs font-semibold">Andrei</div>
+                  <div class="text-4xs text-ink-detail">2h ago</div>
+                </div>
+              </div>
+              <div class="text-xs leading-relaxed">
+                MemHash proved there’s always room for a new app on Telegram —
+                provided you deeply understand which features made its
+                predecessors popular. The key is to borrow only what works while
+                innovating and differentiating elsewhere
+              </div>
             </div>
           </div>
         </div>
         <!-- Fixed Message Input -->
-        <div class="py-1 px-4 z-10 bg-subtle-2 dark:bg-subtle-3 flex gap-2">
+        <div class="py-1 px-4 z-10 bg-subtle-3 flex gap-2">
           <span class="text-ink-detail leading-none"
             >{{ template "arrow-uturn-left.html" .}}</span
           >
-          <p class="text-3xs text-ink-detail line-clamp-2">
+          <p class="text-3xs text-ink-body line-clamp-2">
             MemHash proved there's always room for a new app on Telegram —
             provided you deeply understand which features made its
           </p>
@@ -244,18 +260,18 @@
         <div class="my-2 mx-4 z-10 bg-subtle-0 dark:bg-subtle-1">
           <div class="flex gap-2 items-end">
             <div
-              class="flex items-end bg-subtle-1 dark:bg-subtle-2 border border-divider z-10 rounded-lg w-full"
+              class="flex items-end bg-subtle-1 dark:bg-subtle-2 border border-divider z-10 rounded-lg w-full p-0.5"
             >
+              <button class="btn--icon">{{ template "attach.html" }}</button>
               <textarea
-                class="input text-xs w-full leading-relaxed px-2 py-1"
+                class="input text-xs w-full leading-relaxed px-1 my-auto"
                 rows="1"
                 placeholder="Type a message..."
               ></textarea>
-              <button class="btn--icon">{{ template "attach.html" }}</button>
+              <button class="btn--icon btn--icon--ink">
+                {{ template "arrow-up.html" }}
+              </button>
             </div>
-            <button class="btn--icon btn--icon--ink">
-              {{ template "arrow-up.html" }}
-            </button>
           </div>
         </div>
       </div>
